@@ -4,7 +4,7 @@ const Review = require("../models/reviews");
 const reviews = require("./reviews");
 const router = express.Router();
 const { OAuth } = require("../auth/oauth");
-router.use(OAuth, reviews);
+router.use("/reviews" , OAuth, reviews);
 
 const getProduct = async (id) => {
   const product = await Product.findById(id).populate(

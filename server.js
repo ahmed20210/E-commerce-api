@@ -15,7 +15,7 @@ const Product = require("./models/product");
 const URI =
   "mongodb+srv://ahmedmostafa:01144781238ahmed@ecommerce.lxpr7.mongodb.net/?retryWrites=true&w=majority";
 mongoose
-  .connect(URI, {
+  .connect( URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -28,10 +28,9 @@ app.use(cookieParser());
 
 app.use(user);
 app.use("*", checkUser);
-app.use("/orders", OAuth, order);
 app.use("/product", product);
+app.use("/orders", OAuth, order);
 app.use("/cart", OAuth, cart);
-
 app.use("/whitelist", OAuth, whitelist);
 
 app.get("/category", async (req, res) => {
@@ -42,7 +41,5 @@ app.get("/subcategory", async (req, res) => {
   const subcategorys = subcategory;
   res.json(subcategorys);
 });
-
-
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

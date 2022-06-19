@@ -82,27 +82,27 @@ const updateReview = async (userId, productId, review, rating) => {
   return modifyReview(userId, productId, "update", review, rating);
 };
 
-router.post("/:id/reviews/add", async (req, res) => {
+router.post("/:id/add", async (req, res) => {
   const userId = res.locals.user;
   const productId = req.params.id;
   const { review, rating } = req.body;
   const result = await addReview(userId, productId, review, rating);
   checkDone(res, result);
 });
-router.delete("/:id/reviews/delete", async (req, res) => {
+router.delete("/:id/delete", async (req, res) => {
   const userId = res.locals.user;
   const productId = req.params.id;
   const result = await deleteReview(userId, productId);
   checkDone(res, result);
 });
-router.put("/:id/reviews/update", async (req, res) => {
+router.put("/:id/update", async (req, res) => {
   const userId = res.locals.user;
   const productId = req.params.id;
   const { review, rating } = req.body;
   const result = await updateReview(userId, productId, review, rating);
   checkDone(res, result);
 });
-router.get("/:id/review", async (req, res) => {
+router.get("/:id", async (req, res) => {
   const productId = req.params.id;
   const result = await Review.find({
     user: res.locals.user,
