@@ -1,6 +1,8 @@
+
 // document
 // Products API
- "product" = [
+const document = {
+ "product" : [
     {
     api: "/product",
     method: "GET",
@@ -43,9 +45,9 @@
     description: "Get products by search name",
     return: "Array of products",
 }
-]
+],
 // Reviews API
-"products/reviews" = [
+"products/reviews" : [
 {
     api:"/:id/add",
     method:"POST",
@@ -84,9 +86,9 @@
     id: "product id",
     return:"review object",
 },
-]
+],
 // Users API
-user = [
+"" : [
     {
         api: "/signup",
         method: "POST",
@@ -115,9 +117,9 @@ user = [
     body: null,
     return: "User logged out and cookie deleted",
 }
-]
+],
 // Cart API
-"cart" = [
+"cart" : [
     {
         api: "/add",
         method: "POST",
@@ -171,9 +173,9 @@ return: "array of products in cart",
     body: null,
     return: "array of products in cart",
 }
-]
+],
 // Order API
-"orders" = [
+"orders" :[
     {
         api: "/",
         method: "GET",
@@ -210,9 +212,9 @@ return: "array of products in cart",
         id: "order id",
         return: "array of orders",
     }
-]
+],
 // Wishlist API
-"wishlist" = [
+"wishlist" :[
     {
         api: "/:id/add",
         method: "POST",
@@ -236,9 +238,29 @@ return: "array of products in cart",
         body: null,
         return: "array of products in wishlist",
     }
-]
+],
+// categories API
+ "categories" :[{
+    api: "/",
+    method: "GET",
+    description: "Get all categories",
+    body: null,
+    return: "array of categories",
+}
+],
+// subcategories API
+    "subcategories" : [{
+    api: "/",
+    method: "GET",
+    description: "Get all subcategories",
+    body: null,
+    return: "array of subcategories",
+}
+],
 // protected API
-protected = ["/cart", "/reviews","/orders", "/wishlist"]
+protectedAPIsThatRequireLogin: ["/cart", "/reviews","/orders", "/wishlist"]
 
 
 
+}
+module.exports = document;

@@ -12,6 +12,7 @@ const whitelist = require("./routes/whitelist");
 const { OAuth, checkUser } = require("./auth/oauth");
 const { category, subcategory } = require("./models/product");
 const Product = require("./models/product");
+const documents = require("./documents");
 const URI =
   "mongodb+srv://ahmedmostafa:01144781238ahmed@ecommerce.lxpr7.mongodb.net/?retryWrites=true&w=majority";
 mongoose
@@ -33,13 +34,19 @@ app.use("/orders", OAuth, order);
 app.use("/cart", OAuth, cart);
 app.use("/whitelist", OAuth, whitelist);
 
-app.get("/category", async (req, res) => {
+app.get("/categories", async (req, res) => {
   const categorys = await category;
   res.json(categorys);
 });
-app.get("/subcategory", async (req, res) => {
+app.get("/subcategories", async (req, res) => {
   const subcategorys = subcategory;
   res.json(subcategorys);
 });
+app.get("/" , async (req, res) => {
+  res.send(documents);
+}
+)
+
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
