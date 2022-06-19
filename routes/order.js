@@ -53,13 +53,13 @@ const completeOrder = async (userOrder) => {
         payment: payment || "Cash On Delivery",
         _id: mongoose.Types.ObjectId(),
       };
-      userOrders.orders.push(order);
-      cart.products = [];
-      cart.total = 0;
-
-      await cart.save();
-      await userOrders.save();
-
+      if (cart.products.length > 0) {
+        userOrders.orders.push(order);
+        cart.products = [];
+        cart.total = 0;
+        await cart.save();
+        await userOrders.save();
+      }
       setTimeout(() => {
         cancelOrder(user, order._id.toString());
       }, time);
