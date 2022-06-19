@@ -1,0 +1,255 @@
+const Electronics = [
+  "https://i.im.ge/2022/06/17/rBrLEc.png",
+  "https://i.im.ge/2022/06/17/rBrDM0.jpg",
+  "https://i.im.ge/2022/06/17/rBragW.png",
+  "https://i.im.ge/2022/06/17/rBrs5r.png",
+  "https://i.im.ge/2022/06/17/rBrqrm.png",
+  "https://i.im.ge/2022/06/17/rBrSVf.jpg",
+  "https://i.im.ge/2022/06/17/rBr2N1.png",
+  "https://i.im.ge/2022/06/17/rBr1SP.png",
+  "https://i.im.ge/2022/06/17/rBrXe4.png",
+  "https://i.im.ge/2022/06/17/rBrogD.png",
+  "https://i.im.ge/2022/06/17/rBrT0Y.jpg",
+  "https://i.im.ge/2022/06/17/rBrQrM.png",
+  "https://i.im.ge/2022/06/17/rBlG68.png",
+  "https://i.im.ge/2022/06/17/rBlnv9.jpg",
+  "https://i.im.ge/2022/06/17/rBlJCK.jpg",
+  "https://i.im.ge/2022/06/17/rBlvDF.jpg",
+  "https://i.im.ge/2022/06/17/rBlHe6.jpg",
+];
+const bags = [
+  "https://i.im.ge/2022/06/17/rBXOLC.jpg",
+  "https://i.im.ge/2022/06/17/rBXFQ4.png",
+  "https://i.im.ge/2022/06/17/rBXrRD.jpg",
+  "https://i.im.ge/2022/06/17/rBXl9Y.jpg",
+  "https://i.im.ge/2022/06/17/rBXXFM.jpg",
+  "https://i.im.ge/2022/06/17/rBXTkh.jpg",
+  "https://i.im.ge/2022/06/17/rBXQP8.jpg",
+  "https://i.im.ge/2022/06/17/rBXMqX.jpg",
+  "https://i.im.ge/2022/06/17/rBoGn9.jpg",
+  "https://i.im.ge/2022/06/17/rBoBxK.jpg",
+];
+const laptops = [
+  "https://i.im.ge/2022/06/18/rBOp98.png",
+  "https://i.im.ge/2022/06/18/rBOHFX.png",
+  "https://i.im.ge/2022/06/18/rBOkk9.jpg",
+  "https://i.im.ge/2022/06/18/rBOfPK.png",
+  "https://i.im.ge/2022/06/18/rBOVqF.jpg",
+  "https://i.im.ge/2022/06/18/rBOZn6.png",
+  "https://i.im.ge/2022/06/18/rBOWxz.png",
+  "https://i.im.ge/2022/06/18/rBORLS.png",
+  "https://i.im.ge/2022/06/18/rBO8Qy.png",
+  "https://i.im.ge/2022/06/18/rBOb9a.png",
+  "https://i.im.ge/2022/06/18/rBOYux.png",
+  "https://i.im.ge/2022/06/18/rBOxfG.jpg",
+  "https://i.im.ge/2022/06/18/rBOEPL.jpg",
+  "https://i.im.ge/2022/06/18/rBOCdc.jpg",
+  "https://i.im.ge/2022/06/18/rBOynT.jpg",
+  "https://i.im.ge/2022/06/18/rBOtx0.jpg",
+  "https://i.im.ge/2022/06/18/rBOPIW.jpg",
+  "https://i.im.ge/2022/06/18/rBONQr.jpg",
+];
+const cameras = [
+  "https://i.im.ge/2022/06/17/rBo4LF.png",
+  "https://i.im.ge/2022/06/17/rBonQ6.png",
+  "https://i.im.ge/2022/06/17/rBov8z.png",
+  "https://i.im.ge/2022/06/17/rBop9S.png",
+  "https://i.im.ge/2022/06/17/rBoHuy.jpg",
+  "https://i.im.ge/2022/06/17/rBokfJ.jpg",
+  "https://i.im.ge/2022/06/17/rBofPa.jpg",
+  "https://i.im.ge/2022/06/17/rBoVdx.jpg",
+  "https://i.im.ge/2022/06/17/rBoZJG.png",
+];
+const cars = [
+  "https://i.im.ge/2022/06/18/rB2qGY.jpg",
+  "https://i.im.ge/2022/06/18/rB2dcM.png",
+  "https://i.im.ge/2022/06/18/rB2Sih.png",
+  "https://i.im.ge/2022/06/18/rB22X8.png",
+  "https://i.im.ge/2022/06/18/rB2OKX.png",
+  "https://i.im.ge/2022/06/18/rB2Fw9.png",
+  "https://i.im.ge/2022/06/18/rB2u1K.png",
+];
+const smartphones = [
+'https://i.im.ge/2022/06/18/rBdIWP.jpg',
+'https://i.im.ge/2022/06/18/rBdUo1.jpg',
+'https://i.im.ge/2022/06/18/rBdhUf.png',
+'https://i.im.ge/2022/06/18/rBdiYm.png',
+'https://i.im.ge/2022/06/18/rBdDjp.png',
+'https://i.im.ge/2022/06/18/rBd0Br.png',
+'https://i.im.ge/2022/06/18/rBd9sW.png',
+'https://i.im.ge/2022/06/18/rBdmHT.png',
+'https://i.im.ge/2022/06/18/rBd6Oc.png',
+'https://i.im.ge/2022/06/18/rBdPWG.png',
+'https://i.im.ge/2022/06/18/rBdNmL.png',
+'https://i.im.ge/2022/06/18/rBdyox.png',
+'https://i.im.ge/2022/06/18/rBdAha.png',
+'https://i.im.ge/2022/06/18/rBdCYJ.png',
+'https://i.im.ge/2022/06/18/rBdEBy.png',
+'https://i.im.ge/2022/06/18/rBd3aS.png',
+'https://i.im.ge/2022/06/18/rBdYyz.png',
+];
+const home = [
+  "https://i.im.ge/2022/06/17/rBFa7T.jpg",
+  "https://i.im.ge/2022/06/17/rBFqG0.png",
+  "https://i.im.ge/2022/06/17/rBFdbW.png",
+  "https://i.im.ge/2022/06/17/rBFSir.jpg",
+  "https://i.im.ge/2022/06/17/rBF2Xm.jpg",
+  "https://i.im.ge/2022/06/17/rBFOZf.jpg",
+  "https://i.im.ge/2022/06/17/rBFFw1.jpg",
+  "https://i.im.ge/2022/06/17/rBFu1P.png",
+  "https://i.im.ge/2022/06/17/rBFlHp.jpg",
+  "https://i.im.ge/2022/06/17/rBFXAq.png",
+  "https://i.im.ge/2022/06/17/rBFoaC.jpg",
+  "https://i.im.ge/2022/06/17/rBFQB4.png",
+  "https://i.im.ge/2022/06/17/rBFMbD.png",
+  "https://i.im.ge/2022/06/17/rBuehY.jpg",
+  "https://i.im.ge/2022/06/17/rBuGXM.jpg",
+  "https://i.im.ge/2022/06/17/rBu4Zh.jpg",
+];
+const fashion = [
+  "https://i.im.ge/2022/06/17/rBurRy.jpg",
+  "https://i.im.ge/2022/06/17/rBul9J.jpg",
+  "https://i.im.ge/2022/06/17/rBuXFa.jpg",
+  "https://i.im.ge/2022/06/17/rBuTkx.png",
+  "https://i.im.ge/2022/06/17/rBuQPG.png",
+  "https://i.im.ge/2022/06/17/rBuMqL.png",
+  "https://i.im.ge/2022/06/17/rBrGnc.png",
+  "https://i.im.ge/2022/06/17/rBrB3T.jpg",
+  "https://i.im.ge/2022/06/17/rBr4L0.jpg",
+  "https://i.im.ge/2022/06/17/rBrnQW.jpg",
+  "https://i.im.ge/2022/06/17/rBrvRr.jpg",
+  "https://i.im.ge/2022/06/17/rBrp9m.jpg",
+];
+const tv = [
+  "https://i.im.ge/2022/06/17/rBrkk1.png",
+  "https://i.im.ge/2022/06/17/rBrfPP.jpg",
+  "https://i.im.ge/2022/06/17/rBrVdp.jpg",
+  "https://i.im.ge/2022/06/17/rBrZnq.jpg",
+  "https://i.im.ge/2022/06/17/rBrWxC.jpg",
+  "https://i.im.ge/2022/06/17/rBrRI4.jpg",
+  "https://i.im.ge/2022/06/17/rBr8QD.jpg",
+  "https://i.im.ge/2022/06/17/rBrc8Y.jpg",
+  "https://i.im.ge/2022/06/17/rBrb9M.jpg",
+  "https://i.im.ge/2022/06/17/rBrYuh.jpg",
+  "https://i.im.ge/2022/06/17/rBrxf8.jpg",
+  "https://i.im.ge/2022/06/17/rBrEPX.jpg",
+];
+const watches = [
+  "https://i.im.ge/2022/06/17/rBu8ma.jpg",
+  "https://i.im.ge/2022/06/17/rBugOx.png",
+  "https://i.im.ge/2022/06/17/rBubzG.jpg",
+  "https://i.im.ge/2022/06/17/rBuYyL.jpg",
+  "https://i.im.ge/2022/06/17/rBu3sc.png",
+  "https://i.im.ge/2022/06/17/rBuEBT.jpg",
+  "https://i.im.ge/2022/06/17/rBuCY0.jpg",
+  "https://i.im.ge/2022/06/17/rBuAUW.jpg",
+  "https://i.im.ge/2022/06/17/rBuyor.jpg",
+  "https://i.im.ge/2022/06/17/rBuPWm.jpg",
+  "https://i.im.ge/2022/06/17/rBuNjf.jpg",
+  "https://i.im.ge/2022/06/17/rBu6O1.jpg",
+  "https://i.im.ge/2022/06/17/rBumzP.jpg",
+  "https://i.im.ge/2022/06/17/rBujtp.jpg",
+  "https://i.im.ge/2022/06/17/rBu9sq.jpg",
+  "https://i.im.ge/2022/06/17/rBu04C.jpg",
+];
+const shoes = [
+  "https://i.im.ge/2022/06/17/rBui34.jpg",
+  "https://i.im.ge/2022/06/17/rBuhUD.jpg",
+  "https://i.im.ge/2022/06/17/rBuUTY.jpg",
+  "https://i.im.ge/2022/06/17/rBuIWM.jpg",
+  "https://i.im.ge/2022/06/17/rBuDjh.jpg",
+  "https://i.im.ge/2022/06/17/rBu7F8.jpg",
+  "https://i.im.ge/2022/06/17/rBuszX.jpg",
+  "https://i.im.ge/2022/06/17/rBuqt9.jpg",
+  "https://i.im.ge/2022/06/17/rBudqK.jpg",
+  "https://i.im.ge/2022/06/17/rBu24F.jpg",
+  "https://i.im.ge/2022/06/17/rBu136.jpg",
+  "https://i.im.ge/2022/06/17/rBuOLz.jpg",
+];
+const food = [
+  "https://i.im.ge/2022/06/18/rB1szL.png",
+  "https://i.im.ge/2022/06/18/rB1qtc.png",
+  "https://i.im.ge/2022/06/18/rB1dsT.png",
+  "https://i.im.ge/2022/06/18/rB1240.png",
+  "https://i.im.ge/2022/06/18/rB113W.png",
+  "https://i.im.ge/2022/06/18/rB1OUr.png",
+  "https://i.im.ge/2022/06/18/rB1FTm.png",
+  "https://i.im.ge/2022/06/18/rB1rRf.png",
+  "https://i.im.ge/2022/06/18/rB1lj1.png",
+  "https://i.im.ge/2022/06/18/rB1XFP.png",
+];
+const gym = [
+  "https://i.im.ge/2022/06/17/rBunm8.jpg",
+  "https://i.im.ge/2022/06/17/rBuJ1X.jpg",
+  "https://i.im.ge/2022/06/17/rBupH9.jpg",
+  "https://i.im.ge/2022/06/17/rBuHyK.jpg",
+  "https://i.im.ge/2022/06/17/rBuzaF.jpg",
+  "https://i.im.ge/2022/06/17/rBufB6.jpg",
+  "https://i.im.ge/2022/06/17/rBuVYz.jpg",
+  "https://i.im.ge/2022/06/17/rBuKhS.jpg",
+  "https://i.im.ge/2022/06/17/rBuZoy.jpg",
+];
+const jewellery = [
+  "https://i.im.ge/2022/06/17/rBo8QT.jpg",
+  "https://i.im.ge/2022/06/17/rBoc80.jpg",
+  "https://i.im.ge/2022/06/17/rBob5W.jpg",
+  "https://i.im.ge/2022/06/17/rBoYur.jpg",
+  "https://i.im.ge/2022/06/17/rBoxfm.jpg",
+  "https://i.im.ge/2022/06/17/rBoENf.jpg",
+];
+const Accessories = [
+  "https://i.im.ge/2022/06/18/rBOju1.png",
+  "https://i.im.ge/2022/06/18/rBO5fP.png",
+  "https://i.im.ge/2022/06/18/rBO0Np.png",
+  "https://i.im.ge/2022/06/18/rBOidq.png",
+  "https://i.im.ge/2022/06/18/rBOUJC.png",
+  "https://i.im.ge/2022/06/18/rBOLE4.png",
+  "https://i.im.ge/2022/06/18/rBOIID.png",
+  "https://i.im.ge/2022/06/18/rBODMY.png",
+  "https://i.im.ge/2022/06/18/rBOa8M.png",
+  "https://i.im.ge/2022/06/18/rBOs5h.png",
+  "https://i.im.ge/2022/06/18/rBOqr8.jpg",
+  "https://i.im.ge/2022/06/18/rBOSfX.png",
+  "https://i.im.ge/2022/06/18/rBO2N9.png",
+  "https://i.im.ge/2022/06/18/rBO1SK.png",
+  "https://i.im.ge/2022/06/18/rBOFJF.jpg",
+  "https://i.im.ge/2022/06/18/rBOuE6.jpg",
+  "https://i.im.ge/2022/06/18/rBOrDz.jpg",
+  "https://i.im.ge/2022/06/18/rBOlMS.jpg",
+];
+const photes = []
+photes.push(...Electronics);
+photes.push(...bags)
+photes.push(...laptops)
+photes.push(...cameras)
+photes.push(...cars)
+photes.push(...smartphones)
+photes.push(...home)
+photes.push(...fashion)
+photes.push(...tv)
+photes.push(...watches)
+photes.push(...shoes)
+photes.push(...food)
+photes.push(...gym)
+photes.push(...jewellery)
+photes.push(...Accessories)
+console.log(Electronics.length);
+console.log(bags.length);
+console.log(laptops.length);
+console.log(cameras.length);
+console.log(cars.length);
+console.log(smartphones.length);
+console.log(home.length);
+console.log(fashion.length);
+console.log(tv.length);
+console.log(watches.length);
+console.log(shoes.length);
+console.log(food.length);
+console.log(gym.length);
+console.log(jewellery.length);
+console.log(Accessories.length);
+
+const fs = require("fs");
+fs.writeFile("./pp.js",photes.join('","'),()=>{
+    console.log("done")
+});
