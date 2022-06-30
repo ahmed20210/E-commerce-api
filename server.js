@@ -12,7 +12,7 @@ const whitelist = require("./routes/whitelist");
 const { OAuth, checkUser } = require("./auth/oauth");
 const { category, subcategory } = require("./models/product");
 const Product = require("./models/product");
-const documents = require("./documents");
+const { document, protectedAPIsThatRequireLogin } = require("./documents");
 const URI =
   "mongodb+srv://ahmedmostafa:01144781238ahmed@ecommerce.lxpr7.mongodb.net/?retryWrites=true&w=majority";
 mongoose
@@ -42,11 +42,12 @@ app.get("/subcategories", async (req, res) => {
   const subcategorys = subcategory;
   res.json(subcategorys);
 });
-app.get("/" , async (req, res) => {
-  res.send(documents);
-}
-)
 
+
+app.set("viewengine", "ejs")
+app.get("/", async(req,res)=>{
+  res.render("index.ejs", { document, protectedAPIsThatRequireLogin });
+})
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

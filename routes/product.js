@@ -14,10 +14,7 @@ const getProduct = async (id) => {
   return product;
 };
 const getProducts = async () => {
-  const products = await Product.find().populate(
-    "rate.reviews",
-    "-user -product"
-  );
+  
   return products;
 };
 const getProductsByCategory = async (category) => {
@@ -52,9 +49,17 @@ const getProductsBySearch = async (search) => {
   return products;
 };
 router.get("/", async (req, res) => {
-  const products = await getProducts();
-  res.json(products);
+try{
+    const products = await Product.find().populate(
+    "rate.reviews",
+    "-user -product"
+  );
+ res.send(products)
+ } catch(err){
+  console.log(err);
+ }
 });
+
 router.get("/:id", async (req, res) => {
   const product = await getProduct(req.params.id);
   res.json(product);
