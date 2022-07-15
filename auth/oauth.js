@@ -12,7 +12,7 @@ const OAuth = async (req, res, next) => {
       }
     });
   } else {
-    res.redirect("/login").send("Unauthorized");
+    res.send("Unauthorized");
   }
 };
 
