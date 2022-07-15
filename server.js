@@ -42,7 +42,7 @@ app.get("/subcategories", async (req, res) => {
   const subcategorys = subcategory;
   res.json(subcategorys);
 });
-
+app.get("/Oauth",OAuth())
 
 app.set("viewengine", "ejs")
 app.get("/", async(req,res)=>{

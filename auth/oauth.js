@@ -8,11 +8,11 @@ const OAuth = async (req, res, next) => {
         res.status(401).send("Unauthorized");
       } else {
         next();
+        res.send("Authorized");
       }
     });
   } else {
-    res.redirect("/login");
-    return "Unauthorized";
+    res.redirect("/login").send("Unauthorized");
   }
 };
 
@@ -25,7 +25,6 @@ const checkUser = async (req, res, next) => {
         next();
       } else {
         res.locals.user = decoded.id;
-       
         next();
       }
     });
