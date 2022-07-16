@@ -80,7 +80,7 @@ const logInAuth = async (req, res, next) => {
   } else {
     const age = 30 * 24 * 60 * 60 * 1000;
     const token = createToken(userID);
-    res.cookie("token", token, { maxAge: age, httpOnly: true, sameSite: "None" });
+    res.cookie("token", token, { maxAge: age, httpOnly: true, sameSite: "None" , secure: true});
 
     res.status(200).send("logged in");
     
