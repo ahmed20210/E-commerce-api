@@ -67,7 +67,7 @@ const logIn = async (email, password) => {
 };
 const createToken = (id) => {
   maxage = 30 * 24 * 60 * 60 * 1000;
-  return JWT.sign({ id }, "user secret token", { expiresIn: maxage });
+  return JWT.sign({ id }, "user secret token", { expiresIn: maxage});
 };
 
 const logInAuth = async (req, res, next) => {
@@ -80,7 +80,7 @@ const logInAuth = async (req, res, next) => {
   } else {
     const age = 30 * 24 * 60 * 60 * 1000;
     const token = createToken(userID);
-    res.cookie("token", token, {httpOnly: true, maxAge: age});
+    res.cookie("token", token, { maxAge: age, httpOnly: true });
 
     res.status(200).send("logged in");
     
