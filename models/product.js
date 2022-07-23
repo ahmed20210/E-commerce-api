@@ -21,7 +21,7 @@ const subcategory = [
   "Best Seller",
   "New Arrival",
   "Top Rated",
-  "Feateared",
+  "Featured",
   "On Sale",
 ];
 const ProductSchema = new mongoose.Schema({
