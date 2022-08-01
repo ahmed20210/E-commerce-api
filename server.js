@@ -46,8 +46,9 @@ app.get("/subcategories", async (req, res) => {
   const subcategorys = subcategory;
   res.json(subcategorys);
 });
-app.get("/Oauth", (req, res, next) => {
+app.get("/oauth", (req, res, next) => {
     OAuth(req, res, next);
+
 });
 
 app.set("viewengine", "ejs");
