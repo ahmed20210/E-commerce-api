@@ -5,14 +5,13 @@ const OAuth = async (req, res, next) => {
   if (token) {
     JWT.verify(token, "user secret token", (err, decoded) => {
       if (err) {
-        res.status(401).send("Unauthorized");
+        res.send("Unauthorized");
       } else {
-        res.status(200)
          next();
       }
     });
   } else {
-    res.status(401).send("Unauthorized");
+    res.send("Unauthorized");
   }
 };
 
