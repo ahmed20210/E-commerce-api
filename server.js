@@ -47,13 +47,7 @@ app.get("/subcategories", async (req, res) => {
   res.json(subcategorys);
 });
 app.get("/Oauth", async (req, res, next) => {
-  try {
     OAuth(req, res, next);
-    res.send("Authorized");
-
-  } catch (err) {
-    res.status(401).send("Unauthorized");
-  }
 });
 
 app.set("viewengine", "ejs");
