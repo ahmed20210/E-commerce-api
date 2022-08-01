@@ -49,7 +49,8 @@ app.get("/subcategories", async (req, res) => {
 app.get("/Oauth", async (req, res, next) => {
   try {
     OAuth(req, res, next);
-    res.send("OK");
+    res.send("Authorized");
+
   } catch (err) {
     res.status(401).send("Unauthorized");
   }
