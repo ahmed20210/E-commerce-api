@@ -7,12 +7,11 @@ const OAuth = async (req, res, next) => {
       if (err) {
         res.status(401).send("Unauthorized");
       } else {
-        res.send("Authorized");
          next();
       }
     });
   } else {
-    res.send("Unauthorized");
+    res.status(401).send("Unauthorized");
   }
 };
 

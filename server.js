@@ -12,11 +12,14 @@ const whitelist = require("./routes/whitelist");
 const { OAuth, checkUser } = require("./auth/oauth");
 const { category, subcategory } = require("./models/product");
 const Product = require("./models/product");
+const Review = require("./models/reviews");
+const User = require("./models/user");
 const { document, protectedAPIsThatRequireLogin } = require("./documents");
+const { required } = require("joi");
 const URI =
   "mongodb+srv://ahmedmostafa:01144781238ahmed@ecommerce.lxpr7.mongodb.net/?retryWrites=true&w=majority";
 mongoose
-  .connect( URI, {
+  .connect(URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -24,7 +27,7 @@ mongoose
   .catch((err) => console.error("Could not connect to MongoDB...", err));
 
 app.use(bodyParser.json());
-app.use(cors({  credentials: true }));
+app.use(cors({ credentials: true, origin: true }));
 
 app.use(cookieParser());
 
@@ -43,16 +46,46 @@ app.get("/subcategories", async (req, res) => {
   const subcategorys = subcategory;
   res.json(subcategorys);
 });
-app.get("/Oauth", (req, res, next) => {
-  OAuth(req, res, next);
-}
-)
+app.get("/Oauth", async (req, res, next) => {
+  try {
+    OAuth(req, res, next);
+    res.send("OK");
+  } catch (err) {
+    res.status(401).send("Unauthorized");
+  }
+});
 
-
-app.set("viewengine", "ejs")
-app.get("/", async(req,res)=>{
+app.set("viewengine", "ejs");
+app.get("/", async (req, res) => {
   res.render("index.ejs", { document, protectedAPIsThatRequireLogin });
-})
+});
+
+// const modifyProduct = async ()=>{
+//   const product = await Product.find()
+//   product.map(async (item, index)=>{
+//     const productId = item._id
+//       const review = "lorem ipsum review goes here"
+//       const rating = Math.ceil(Math.random() * 5);
+// const rate = {
+//   user: "62dbddfebf657a1157f265e5",
+//   product: productId,
+//   review: review,
+//   rating: rating,
+// };
+//       const newReview = new Review(rate);
+
+//         // item.rate.reviews.push(newReview._id);
+//         // item.rate.numberOfReviews += 1;
+//         // item.rate.rating =
+//         //   (item.rate.rating + rating) / item.rate.numberOfReviews;
+// console.log(newReview);
+//       await newReview.save();
+//     // await item.save();
+
+//   }
+//   )
+// }
+//  modifyProduct();
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
