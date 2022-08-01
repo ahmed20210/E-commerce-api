@@ -46,7 +46,7 @@ app.get("/subcategories", async (req, res) => {
   const subcategorys = subcategory;
   res.json(subcategorys);
 });
-app.get("/Oauth", async (req, res, next) => {
+app.get("/Oauth", (req, res, next) => {
     OAuth(req, res, next);
 });
 
