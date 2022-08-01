@@ -27,7 +27,7 @@ mongoose
   .catch((err) => console.error("Could not connect to MongoDB...", err));
 
 app.use(bodyParser.json());
-app.use(cors({ credentials: true, origin: true }));
+app.use(cors({ credentials: true,origin:true }));
 
 app.use(cookieParser());
 
