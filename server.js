@@ -47,7 +47,20 @@ app.get("/subcategories", async (req, res) => {
   res.json(subcategorys);
 });
 app.get("/oauth", (req, res, next) => {
-    OAuth(req, res, next);
+  const token = req.cookies.token;
+  if (token) {
+    JWT.verify(token, "user secret token", (err, decoded) => {
+      if (err) {
+        res.status(401).send("Unauthorized");
+      } else {
+res.status(200).send("Authorized");
+        
+      }
+    });
+  } else {
+     res.status(401).send("Unauthorized");
+  }
+    
 
 });
 
