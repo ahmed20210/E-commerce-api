@@ -107,7 +107,7 @@ router.get("/:id", async (req, res) => {
   const result = await Review.find({
     user: res.locals.user,
     product: productId,
-  }).select("-user -__v");
+  }).populate("user", "name");
 
   checkDone(res, result);
 });

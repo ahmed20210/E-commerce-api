@@ -12,11 +12,9 @@ const order = require("./routes/order");
 const whitelist = require("./routes/whitelist");
 const { OAuth, checkUser } = require("./auth/oauth");
 const { category, subcategory } = require("./models/product");
-const Product = require("./models/product");
-const Review = require("./models/reviews");
-const User = require("./models/user");
+
 const { document, protectedAPIsThatRequireLogin } = require("./documents");
-const { required } = require("joi");
+
 const URI =
   "mongodb+srv://ahmedmostafa:01144781238ahmed@ecommerce.lxpr7.mongodb.net/?retryWrites=true&w=majority";
 mongoose
