@@ -15,8 +15,11 @@ const modifyReview = async (userId, productId, action, review, rating) => {
   const previousReview = await Review.findOne({
     user: userId,
     product: productId,
-  });
-  const coll = await Review.find({ product: productId });
+  }).populate("user", "name -_id");
+  const coll = await Review.find({ product: productId }).populate(
+    "user",
+    "name -_id"
+  );
   const sum = coll.reduce((acc, curr) => acc + curr.rating, 0);
   if (user && product) {
     if (action == "add") {
@@ -25,6 +28,7 @@ const modifyReview = async (userId, productId, action, review, rating) => {
         product: productId,
         review: review,
         rating: rating,
+        name: user.name,
       };
       const newReview = new Review(rate);
       if (!previousReview) {
@@ -107,7 +111,7 @@ router.get("/:id", async (req, res) => {
   const result = await Review.find({
     user: res.locals.user,
     product: productId,
-  }).populate("user", "name");
+  })
 
   checkDone(res, result);
 });

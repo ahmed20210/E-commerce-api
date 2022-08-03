@@ -45,7 +45,7 @@ const getProductsBySearch = async (search) => {
   }).populate(
     "rate.reviews",
     "-user -product"
-  );
+  )
   return products;
 };
 router.get("/", async (req, res) => {
