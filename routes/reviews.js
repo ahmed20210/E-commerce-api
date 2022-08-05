@@ -67,7 +67,7 @@ const modifyReview = async (userId, productId, action, review, rating) => {
         const preview = await Review.findOne({
           user: userId,
           product: productId,
-        });
+        }).select("review rating name"); 
         product.rate.rating =
           (sum - previousReview.rating + rating) / product.rate.numberOfReviews;
         await product.save();
