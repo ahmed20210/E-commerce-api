@@ -28,7 +28,6 @@ const modifyCart = async (userId, productId, action, quantity) => {
           return {
             products: cart.products,
             total: cart.total,
-
           }
         }
       } else if (action === "delete") {
@@ -60,7 +59,10 @@ const modifyCart = async (userId, productId, action, quantity) => {
           cartItem.quantity += quantity;
           cart.total += product.price * quantity;
           await cart.save();
-          return cart
+          return {
+            products: cart.products,
+            total: cart.total,
+          };
         }
       }
     } 
