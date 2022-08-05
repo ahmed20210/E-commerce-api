@@ -5,16 +5,17 @@ const Product = require("../models/product");
 const Joi = require("joi");
 
 const modifyCart = async (userId, productId, action, quantity) => {
-  try {
+  try { 
     const user = await User.findById(userId);
     const product = await Product.findById(productId);
-    const cart = await Cart.findOne({ user: userId });
+    const cart = await Cart.findOne({ user: userId })
     const cartItem = cart.products.find(
       (item) => item.product.toString() === productId
     );
 
     if (user && product && cart) {
       if (action === "add") {
+        
         if (!cartItem) {
           const newItem = {
             product: productId,
@@ -24,14 +25,15 @@ const modifyCart = async (userId, productId, action, quantity) => {
           cart.products.push(newItem);
           cart.total = cart.total + product.price;
           await cart.save();
-          return cart;
+          console.log("cart")
+          return cart.select("-user -__v");
         }
       } else if (action === "delete") {
         if (cartItem) {
           cart.products.splice(cart.products.indexOf(cartItem), 1);
           cart.total = cart.total - product.price * cartItem.quantity;
           await cart.save();
-          return cart
+          return cart.select("-user -__v");
         }
       } else if (action === "decrease") {
         if (cartItem) {
@@ -42,14 +44,14 @@ const modifyCart = async (userId, productId, action, quantity) => {
           }
 
           await cart.save();
-          return cart
+          return cart.select("-user -__v");
         }
       } else if (action === "increase") {
         if (quantity > 0) {
           cartItem.quantity += quantity;
           cart.total += product.price * quantity;
           await cart.save();
-          return cart;
+          return cart.select("-user -__v");
         }
       }
     } 
@@ -58,7 +60,7 @@ const modifyCart = async (userId, productId, action, quantity) => {
       cart.products = [];
       cart.total = 0;
       await cart.save();
-      return cart;
+      return cart.select("-user -__v");
     } 
   }
   } catch (error) {
