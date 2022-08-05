@@ -25,15 +25,21 @@ const modifyCart = async (userId, productId, action, quantity) => {
           cart.products.push(newItem);
           cart.total = cart.total + product.price;
           await cart.save();
-          console.log("cart")
-          return cart.select("-user -__v");
+          return {
+            products: cart.products,
+            total: cart.total,
+
+          }
         }
       } else if (action === "delete") {
         if (cartItem) {
           cart.products.splice(cart.products.indexOf(cartItem), 1);
           cart.total = cart.total - product.price * cartItem.quantity;
           await cart.save();
-          return cart.select("-user -__v");
+          return {
+            products: cart.products,
+            total: cart.total,
+          };
         }
       } else if (action === "decrease") {
         if (cartItem) {
@@ -44,14 +50,17 @@ const modifyCart = async (userId, productId, action, quantity) => {
           }
 
           await cart.save();
-          return cart.select("-user -__v");
+          return {
+            products: cart.products,
+            total: cart.total,
+          };
         }
       } else if (action === "increase") {
         if (quantity > 0) {
           cartItem.quantity += quantity;
           cart.total += product.price * quantity;
           await cart.save();
-          return cart.select("-user -__v");
+          return cart
         }
       }
     } 
@@ -60,7 +69,10 @@ const modifyCart = async (userId, productId, action, quantity) => {
       cart.products = [];
       cart.total = 0;
       await cart.save();
-      return cart.select("-user -__v");
+      return {
+        products: cart.products,
+        total: cart.total,
+      };
     } 
   }
   } catch (error) {
