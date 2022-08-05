@@ -41,6 +41,7 @@ const modifyReview = async (userId, productId, action, review, rating) => {
         return {
           review: newReview.review,
           rating: newReview.rating,
+          name : newReview.name
         }
       }
     } else if (action == "delete") {
