@@ -82,7 +82,7 @@ const logInAuth = async (req, res, next) => {
     const token = createToken(userID);
     res.cookie("token", token, { maxAge: age, httpOnly: true, sameSite: "None" , secure: true});
 
-    res.status(200).send("logged in");
+    res.status(200).send( token);
     
   }
 };
