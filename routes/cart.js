@@ -8,7 +8,7 @@ const modifyCart = async (userId, productId, action, quantity) => {
   try { 
     const user = await User.findById(userId);
     const product = await Product.findById(productId);
-    const cart = await Cart.findOne({ user: userId }).populate("products.product");
+    const cart = await Cart.findOne({ user: userId });
     const cartItem = cart.products.find(
       (item) => item.product.toString() === productId
     );
@@ -25,10 +25,7 @@ const modifyCart = async (userId, productId, action, quantity) => {
           cart.products.push(newItem);
           cart.total = cart.total + product.price;
           await cart.save();
-          return {
-            products: cart.products,
-            total: cart.total,
-          }
+          return "cart item added";
         }
       } else if (action === "delete") {
         if (cartItem) {
@@ -49,20 +46,14 @@ const modifyCart = async (userId, productId, action, quantity) => {
           }
 
           await cart.save();
-          return {
-            products: cart.products,
-            total: cart.total,
-          };
+          return "cart item decreased";
         }
       } else if (action === "increase") {
         if (quantity > 0) {
           cartItem.quantity += quantity;
           cart.total += product.price * quantity;
           await cart.save();
-          return {
-            products: cart.products,
-            total: cart.total,
-          };
+          return "cart item increased";
         }
       }
     } 
@@ -71,10 +62,7 @@ const modifyCart = async (userId, productId, action, quantity) => {
       cart.products = [];
       cart.total = 0;
       await cart.save();
-      return {
-        products: cart.products,
-        total: cart.total,
-      };
+      return "cart emptied";
     } 
   }
   } catch (error) {
@@ -104,7 +92,7 @@ const increaseMany = async (userId, productId, quantity) => {
   return modifyCart(userId, productId, "increase", quantity || 1);
 };
 const getCart = async (userId) => {
-  const cart = await Cart.findOne({ user: userId }).select("products total")
+  const cart = await Cart.findOne({ user: userId }).select("products total").populate("products.product", "name price image");
   return cart;
 };
 router.post("/add", async (req, res) => {
