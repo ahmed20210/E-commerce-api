@@ -8,7 +8,7 @@ const modifyCart = async (userId, productId, action, quantity) => {
   try { 
     const user = await User.findById(userId);
     const product = await Product.findById(productId);
-    const cart = await Cart.findOne({ user: userId })
+    const cart = await Cart.findOne({ user: userId }).populate("products.product");
     const cartItem = cart.products.find(
       (item) => item.product.toString() === productId
     );
@@ -104,7 +104,7 @@ const increaseMany = async (userId, productId, quantity) => {
   return modifyCart(userId, productId, "increase", quantity || 1);
 };
 const getCart = async (userId) => {
-  const cart = await Cart.findOne({ user: userId }).select("products total");
+  const cart = await Cart.findOne({ user: userId }).select("products total")
   return cart;
 };
 router.post("/add", async (req, res) => {
