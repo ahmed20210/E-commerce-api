@@ -8,7 +8,7 @@ const modifyCart = async (userId, productId, action, quantity) => {
   try { 
     const user = await User.findById(userId);
     const product = await Product.findById(productId);
-    const cart = await Cart.findOne({ user: userId });
+    const cart = await Cart.findOne({ user: userId })
     const cartItem = cart.products.find(
       (item) => item.product.toString() === productId
     );
@@ -25,35 +25,44 @@ const modifyCart = async (userId, productId, action, quantity) => {
           cart.products.push(newItem);
           cart.total = cart.total + product.price;
           await cart.save();
-          return "cart item added";
+          return "Added to cart";
         }
       } else if (action === "delete") {
         if (cartItem) {
           cart.products.splice(cart.products.indexOf(cartItem), 1);
           cart.total = cart.total - product.price * cartItem.quantity;
           await cart.save();
-          return {
-            products: cart.products,
-            total: cart.total,
-          };
+          return "Removed from cart";
         }
       } else if (action === "decrease") {
         if (cartItem) {
           cartItem.quantity -= 1;
+          cartItem.price = cartItem.quantity * product.price;
           cart.total -= product.price;
           if (cartItem.quantity === 0) {
             cart.products.splice(cart.products.indexOf(cartItem), 1);
           }
-
           await cart.save();
-          return "cart item decreased";
+          return "Decreased";
         }
       } else if (action === "increase") {
-        if (quantity > 0) {
-          cartItem.quantity += quantity;
-          cart.total += product.price * quantity;
+        if (cartItem) {
+          cartItem.quantity += 1
+          cartItem.price = cartItem.quantity * product.price;
+          cart.total += product.price;
           await cart.save();
-          return "cart item increased";
+          return "Increased";
+        }
+        
+      }
+      else if (action === "change") {
+        if (cartItem) {
+          cartItem.quantity = quantity;
+          cart.total = cart.total - cartItem.price
+          cartItem.price = cartItem.quantity * product.price; 
+          cart.total = cart.total + cartItem.price;
+          await cart.save();
+          return "Changed";
         }
       }
     } 
@@ -62,7 +71,7 @@ const modifyCart = async (userId, productId, action, quantity) => {
       cart.products = [];
       cart.total = 0;
       await cart.save();
-      return "cart emptied";
+      return "Removed all from cart";
     } 
   }
   } catch (error) {
@@ -88,9 +97,13 @@ const removeAllFromCart = async (userId) => {
 const decreaseOne = async (userId, productId) => {
   return modifyCart(userId, productId, "decrease");
 };
-const increaseMany = async (userId, productId, quantity) => {
-  return modifyCart(userId, productId, "increase", quantity || 1);
+const increaseMany = async (userId, productId) => {
+  return modifyCart(userId, productId, "increase");
 };
+const changeQuantity = async (userId, productId, quantity) => {
+  return modifyCart(userId, productId, "change", quantity);
+}
+
 const getCart = async (userId) => {
   const cart = await Cart.findOne({ user: userId }).select("products total").populate("products.product", "name price image");
   return cart;
@@ -125,19 +138,34 @@ router.post("/decrease", async (req, res) => {
 });
 router.post("/increase", async (req, res) => {
   const userId = res.locals.user;
-  const { productId, quantity } = req.body;
+  const { productId } = req.body;
 
   const validate = Joi.object({
     productId: Joi.string().required(),
-    quantity: Joi.number()
   }).validate(req.body);
   if (validate.error) {
     res.sendStatus(400);
   } else {
-    const result = await increaseMany(userId, productId, quantity);
+    const result = await increaseMany(userId, productId);
     checkDone(res, result);
   }
 });
+router.post("/change", async (req, res) => {
+  const userId = res.locals.user;
+  const { productId, quantity } = req.body;
+  const validate = Joi.object({
+    productId: Joi.string().required(),
+    quantity: Joi.number().required(),
+  }).validate(req.body);
+  if (validate.error) {
+    res.sendStatus(400);
+  } else {
+    const result = await changeQuantity(userId, productId, quantity);
+    checkDone(res, result);
+  }
+}
+);
+
 router.get("/", async (req, res) => {
   try {
     const userId = res.locals.user;
