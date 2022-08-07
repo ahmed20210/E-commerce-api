@@ -160,10 +160,8 @@ router.post("/change", async (req, res) => {
   if (validate.error) {
     res.sendStatus(400);
   } else {
-   
     const result = await changeQuantity(userId, productId, quantity);
     checkDone(res, result);
-     console.log(checkDone(res, result));
   }
 }
 );
