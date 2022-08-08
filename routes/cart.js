@@ -108,7 +108,7 @@ const getCart = async (userId) => {
   const cart = await Cart.findOne({ user: userId }).select("products total").populate("products.product", "name price image");
   return cart;
 };
-router.post("/change", async (req, res) => {
+router.post("/update", async (req, res) => {
   const userId = res.locals.user;
   const { productId, quantity } = req.body;
   const validate = Joi.object({
