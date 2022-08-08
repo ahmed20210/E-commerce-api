@@ -108,32 +108,26 @@ const getCart = async (userId) => {
   const cart = await Cart.findOne({ user: userId }).select("products total").populate("products.product", "name price image");
   return cart;
 };
-// router.post("/change", async (req, res) => {
-//   const userId = res.locals.user;
-//   const { productId, quantity } = req.body;
-//   const validate = Joi.object({
-//     productId: Joi.string().required(),
-//     quantity: Joi.number().required(),
-//   }).validate(req.body);
-//   if (validate.error) {
-//     res.sendStatus(400);
-//   } else {
-//     const result = await changeQuantity(userId, productId, quantity);
-//     checkDone(res, result);
-//   }
-// });
+router.post("/change", async (req, res) => {
+  const userId = res.locals.user;
+  const { productId, quantity } = req.body;
+  const validate = Joi.object({
+    productId: Joi.string().required(),
+    quantity: Joi.number().required(),
+  }).validate(req.body);
+  if (validate.error) {
+    res.sendStatus(400);
+  } else {
+    const result = await changeQuantity(userId, productId, quantity);
+    checkDone(res, result);
+  }
+});
 router.post("/add", async (req, res) => {
   try {
     const userId = res.locals.user;
-    const { productId , quantity} = req.body;
-    if (quantity) {
-      const result = await changeQuantity(userId, productId, quantity);
-          checkDone(res, result);
-    }
-    else {
+    const { productId } = req.body;
     const result = await addToCart(userId, productId);
     checkDone(res, result);
-    }
   } catch (err) {
     res.sendStatus(500);
   }
