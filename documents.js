@@ -51,7 +51,7 @@ const document = [
     body: null,
   },
   {
-    api: "products/reviews/:id/add",
+    api: "product/reviews/:id/add",
     method: "POST",
     description: "add review to product",
     body: {
@@ -62,7 +62,7 @@ const document = [
     return: "review object that created",
   },
   {
-    api: "products/reviews/:id/delete",
+    api: "product/reviews/:id/delete",
     method: "DELETE",
     description: "delete review from product",
     body: null,
@@ -70,7 +70,7 @@ const document = [
     return: "review deleted",
   },
   {
-    api: "products/reviews/:id/update",
+    api: "product/reviews/:id/update",
     method: "PUT",
     description: "update review from product",
     body: {
@@ -81,7 +81,7 @@ const document = [
     return: "review object that updated",
   },
   {
-    api: "products/reviews/:id",
+    api: "product/reviews/:id",
     method: "GET",
     description: "Get review of current user",
     body: null,
