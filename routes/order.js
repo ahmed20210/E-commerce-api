@@ -32,7 +32,7 @@ const checkDone = (res, result) => {
 const completeOrder = async (userOrder) => {
   try {
     const time = 3 * 24 * 60 * 60 * 1000;
-    const { user, to, phone, payment } = userOrder;
+    const { user, to, phone, payment, notes } = userOrder;
     const cart = await Cart.findOne({ user: user });
     const products = await Product.find({ _id: { $in: cart.products } });
     const stock = products.map((product) => {
@@ -50,6 +50,7 @@ const completeOrder = async (userOrder) => {
         phone,
         total: cart.total,
         date: Date.now(),
+        notes,
         payment: payment || "Cash On Delivery",
         _id: mongoose.Types.ObjectId(),
       };
@@ -92,17 +93,19 @@ router.get("/:id", async (req, res) => {
 });
 router.post("/", async (req, res) => {
   const user = res.locals.user;
-  const { to, phone, payment } = req.body;
+  const { to, phone, payment, notes } = req.body;
   const validate = joi
     .object({
       to: joi.string().required(),
       phone: joi.number().required(),
+      payment: joi.string().required(),
+      notes: joi.string(),
     })
     .validate(req.body);
   if (validate.error) {
     res.status(400).send(validate.error.details[0].message);
   } else {
-    const result = await completeOrder({ user, to, phone, payment });
+    const result = await completeOrder({ user, to, phone, payment, notes });
     checkDone(res, result);
   }
 });

@@ -17,6 +17,7 @@ const OrderSchema = new mongoose.Schema({
       total: { type: Number, default: 0 },
       date: { type: Date, default: Date.now },
       payment: { type: String, enum: paymentMethod },
+      notes: { type: String },
     },
   ],
 });
