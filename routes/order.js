@@ -93,7 +93,8 @@ router.get("/:id", async (req, res) => {
 });
 router.post("/", async (req, res) => {
   const user = res.locals.user;
-  const { to, phone, payment, notes } = req.body;
+  const { to, phone, payment} = req.body;
+  const notes = req.body.notes || "";
   const validate = joi
     .object({
       to: joi.string().required(),
@@ -105,6 +106,7 @@ router.post("/", async (req, res) => {
   if (validate.error) {
     res.status(400).send(validate.error.details[0].message);
   } else {
+
     const result = await completeOrder({ user, to, phone, payment, notes });
     checkDone(res, result);
   }
