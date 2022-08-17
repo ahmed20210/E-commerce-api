@@ -21,7 +21,7 @@ const addTOWhitelist = async (userID, productID) => {
         if (!checkExist) {
           user.whiteList.push(productID);
           await user.save();
-          return user.whiteList;
+          return "add success";
         }
       }
     }
@@ -40,7 +40,7 @@ const removeFromWhitelist = async (userID, productID) => {
       if (product) {
         user.whiteList.splice(index, 1);
         await user.save();
-        return user.whiteList;
+        return "remove success";
       }
     }
   } catch (err) {
@@ -49,7 +49,7 @@ const removeFromWhitelist = async (userID, productID) => {
 };
 const getWhitelist = async (userID) => {
   try {
-    const user = await User.findById(userID);
+    const user = await User.findById(userID).populate("whiteList");
     if (!user) {
       return "login frist";
     } else {
