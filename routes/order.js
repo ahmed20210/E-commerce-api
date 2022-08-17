@@ -75,7 +75,8 @@ const completeOrder = async (userOrder) => {
 
 router.get("/", async (req, res) => {
   console.log("get all orders");
-  const userOrders = await Order.findOne({ user: res.locals.user }).select(
+  const userOrders = await Order.findOne({ user: res.locals.user }).populate("orders.products.product")
+  .select(
     "orders"
   );
   res.json(userOrders);
