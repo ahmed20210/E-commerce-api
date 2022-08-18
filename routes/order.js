@@ -14,7 +14,7 @@ const cancelOrder = async (userId, orderId) => {
       const index = orderList.orders.indexOf(order);
       orderList.orders.splice(index, 1);
       await orderList.save();
-      return orderList.orders;
+      return "Order Cancelled";
     } else {
       console.log("order not found");
     }
