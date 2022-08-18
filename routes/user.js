@@ -9,8 +9,8 @@ const signUP = async (user) => {
   try {
 
     const { name, email, password } = user;
-    const user = await User.findOne({ email: email });
-    if (user) {
+    const users = await User.findOne({ email: email });
+    if (users) {
       throw new Error("Email already exists");
     } 
     else {
