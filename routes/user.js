@@ -87,9 +87,14 @@ const logInAuth = async (req, res, next) => {
   }
 };
 const logOut = (req, res) => {
-  res.cookie("token", "", { maxAge: 0 });
+  res.cookie("token", "", {
+    maxAge: 0,
+    httpOnly: true,
+    sameSite: "None",
+    secure: true,
+  });
   
-  res.status(200).send(res.locals.user);
+  res.status(200).send(req.cookies.user);
 
  
 };
