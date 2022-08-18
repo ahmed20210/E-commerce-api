@@ -86,9 +86,10 @@ const logInAuth = async (req, res, next) => {
     
   }
 };
-const logOut = (req, res, next) => {
+const logOut = (req, res) => {
   res.cookie("token", "", { maxAge: 0 });
-  res.status(200).send("logged out");
+  
+  res.status(200).send(res.locals.user);
 
  
 };
