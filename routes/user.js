@@ -7,10 +7,16 @@ const bcrypt = require("bcrypt");
 const JWT = require("jsonwebtoken");
 const signUP = async (user) => {
   try {
+
     const { name, email, password } = user;
+    const user = await User.findOne({ email: email });
+    if (user) {
+      throw new Error("Email already exists");
+    } 
+    else {
     const { error } = userValidationSchema.validate(user);
     if (error) {
-      return error.details[0].message;
+      throw new Error(error.details[0].message);
     } else {
       const salt = 10;
       const hash = bcrypt.hashSync(password, salt);
@@ -38,6 +44,7 @@ const signUP = async (user) => {
       await order.save();
       return "User created";
     }
+  }
   } catch (err) {
     return err;
   }
