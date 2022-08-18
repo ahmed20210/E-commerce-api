@@ -11,12 +11,12 @@ const signUP = async (user) => {
     const { name, email, password } = user;
     const users = await User.findOne({ email: email });
     if (users) {
-      throw new Error("Email already exists");
+     return "Email already exists"
     } 
     else {
     const { error } = userValidationSchema.validate(user);
     if (error) {
-      throw new Error(error.details[0].message);
+      return error.details[0].message
     } else {
       const salt = 10;
       const hash = bcrypt.hashSync(password, salt);
@@ -53,8 +53,20 @@ router.post("/signup", async (req, res) => {
 
   const { name , email, password } = req.body;
   const result = await signUP({ name, email, password });
-  res.json(result);
+ 
+  if (result === "Email already exists") {
+    res.status(400).send(result);
+  }
+  else if (result === "User created") {
+    res.status(200).send(result);
+  }
+  else {
+    res.status(400).send(result);
+  }
+  
 });
+
+
 const logIn = async (email, password) => {
   try {
     const user = await User.findOne({ email: email });
