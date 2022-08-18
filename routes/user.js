@@ -63,7 +63,7 @@ router.post("/signup", async (req, res) => {
   else {
     res.status(400).send(result);
   }
-  
+
 });
 
 
@@ -93,9 +93,9 @@ const logInAuth = async (req, res, next) => {
   const { email, password } = req.body;
   const userID = await logIn(email, password);
   if (userID === "User not found") {
-    res.status(400);
+    res.status(400).send(userID);
   } else if (userID === "Invalid password") {
-    res.status(400);
+    res.status(400).send(userID);
   } else {
     const age = 30 * 24 * 60 * 60 * 1000;
     const token = createToken(userID);
