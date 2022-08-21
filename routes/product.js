@@ -49,6 +49,7 @@ const getProductsBySearch = async (search) => {
   return products;
 };
 router.get("/", async (req, res) => {
+  
 try{
     const products = await Product.find().populate(
     "rate.reviews",
