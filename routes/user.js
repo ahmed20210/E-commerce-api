@@ -50,6 +50,7 @@ const signUP = async (user) => {
   }
 };
 router.post("/signup", async (req, res) => {
+  try {
 
   const { name , email, password } = req.body;
   const result = await signUP({ name, email, password });
@@ -63,6 +64,9 @@ router.post("/signup", async (req, res) => {
   else {
     res.status(400).send(result);
   }
+} catch (err) {
+  res.status(400).send(err);
+}
 
 });
 
@@ -90,6 +94,7 @@ const createToken = (id) => {
 };
 
 const logInAuth = async (req, res, next) => {
+  try {
   const { email, password } = req.body;
   const userID = await logIn(email, password);
   if (userID === "User not found") {
@@ -102,12 +107,18 @@ const logInAuth = async (req, res, next) => {
     res.cookie("token", token, { maxAge: age, httpOnly: true, sameSite: "None" , secure: true});
 
     res.status(200).send( "logged in");
-    
+  }
+  } catch (err) {
+    console.log(err);
   }
 };
 const logOut = (req, res, next) => {
+  try {
   res.cookie("token", "", { maxAge: null, httpOnly: true, sameSite: "None" , secure: true});
   res.status(200).send("logged out");
+  } catch (err) {
+    console.log(err);
+  }
 
  
 };

@@ -109,6 +109,7 @@ const getCart = async (userId) => {
   return cart;
 };
 router.post("/update", async (req, res) => {
+  try {
   const userId = res.locals.user;
   const { productId, quantity } = req.body;
   const validate = Joi.object({
@@ -120,6 +121,9 @@ router.post("/update", async (req, res) => {
   } else {
     const result = await changeQuantity(userId, productId, quantity);
     checkDone(res, result);
+  }
+  } catch (error) {
+    res.status(500).send(error);
   }
 });
 router.post("/add", async (req, res) => {
@@ -133,24 +137,37 @@ router.post("/add", async (req, res) => {
   }
 });
 router.post("/delete", async (req, res) => {
+  try {
   const userId = res.locals.user;
   const { productId } = req.body;
   const result = await removeFromCart(userId, productId);
   checkDone(res, result);
+  } catch (err) {
+    res.sendStatus(500);
+  }
 });
 router.post("/remove", async (req, res) => {
+  try {
   const userId = res.locals.user;
   const result = await removeAllFromCart(userId);
   checkDone(res, result);
+  } catch (err) {
+    res.sendStatus(500);
+  }
 });
 
 router.post("/decrease", async (req, res) => {
+  try {
   const userId = res.locals.user;
   const { productId } = req.body;
   const result = await decreaseOne(userId, productId);
   checkDone(res, result);
+  } catch (err) {
+    res.sendStatus(500);
+  }
 });
 router.post("/increase", async (req, res) => {
+  try {
   const userId = res.locals.user;
   const { productId } = req.body;
 
@@ -163,6 +180,10 @@ router.post("/increase", async (req, res) => {
     const result = await increaseMany(userId, productId);
     checkDone(res, result);
   }
+  } catch (error) {
+    res.status(500).send(error);
+  }
+
 });
 
 

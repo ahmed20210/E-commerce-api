@@ -74,14 +74,18 @@ const completeOrder = async (userOrder) => {
 };
 
 router.get("/", async (req, res) => {
-  console.log("get all orders");
+  try {
   const userOrders = await Order.findOne({ user: res.locals.user }).populate("orders.products.product")
   .select(
     "orders"
   );
   res.json(userOrders);
+  } catch (error) {
+    console.log(error);
+  }
 });
 router.get("/:id", async (req, res) => {
+  try {
   const userOrder = await Order.findOne({ user: res.locals.user });
   const theOrder = userOrder.orders.find(
     (o) => o.id.toString() === req.params.id
@@ -91,8 +95,12 @@ router.get("/:id", async (req, res) => {
   } else {
     res.status(404).send("Order not found");
   }
+  } catch (error) {
+    console.log(error);
+  }
 });
 router.post("/", async (req, res) => {
+  try {
   const user = res.locals.user;
   const { to, phone, payment} = req.body;
   const notes = req.body.notes || "";
@@ -111,10 +119,17 @@ router.post("/", async (req, res) => {
     const result = await completeOrder({ user, to, phone, payment, notes });
     checkDone(res, result);
   }
+  } catch (error) {
+    console.log(error);
+  }
 });
 router.delete("/:id", async (req, res) => {
+  try {
   const user = res.locals.user;
   const result = await cancelOrder(user, req.params.id);
   checkDone(res, result);
+  } catch (error) {
+    console.log(error);
+  }
 });
 module.exports = router;

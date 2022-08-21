@@ -89,33 +89,48 @@ const updateReview = async (userId, productId, review, rating) => {
 };
 
 router.post("/:id/add", async (req, res) => {
+  try {
   const userId = res.locals.user;
   const productId = req.params.id;
   const { review, rating } = req.body;
   const result = await addReview(userId, productId, review, rating);
   checkDone(res, result);
+} catch (error) {
+  console.log(error);
+}
 });
 router.delete("/:id/delete", async (req, res) => {
+  try {
   const userId = res.locals.user;
   const productId = req.params.id;
   const result = await deleteReview(userId, productId);
   checkDone(res, result);
+} catch (error) {
+  console.log(error);
+}
 });
 router.put("/:id/update", async (req, res) => {
+  try {
   const userId = res.locals.user;
   const productId = req.params.id;
   const { review, rating } = req.body;
   const result = await updateReview(userId, productId, review, rating);
   checkDone(res, result);
+} catch (error) {
+  console.log(error);
+}
 });
 router.get("/:id", async (req, res) => {
+  try {
   const productId = req.params.id;
   const result = await Review.find({
     user: res.locals.user,
     product: productId,
   })
-
   checkDone(res, result);
+} catch (error) {
+  console.log(error);
+}
 });
 
 module.exports = router;

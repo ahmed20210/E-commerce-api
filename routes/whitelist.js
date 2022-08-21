@@ -60,21 +60,33 @@ const getWhitelist = async (userID) => {
   }
 };
 router.post("/:id/add", async (req, res) => {
+  try {
   const userID = res.locals.user;
   const productID = req.params.id;
   const result = await addTOWhitelist(userID, productID);
  checkDone(res, result); 
+  } catch (err) {
+    console.log(err);
+  }
 });
 router.post("/:id/remove", async (req, res) => {
+  try {
   const userID = res.locals.user;
   const productID = req.params.id;
   const result = await removeFromWhitelist(userID, productID);
  checkDone(res, result) 
+  } catch (err) {
+    console.log(err);
+  }
 });
 router.get("/", async (req, res) => {
+  try {
   const userID = res.locals.user;
 
   const result = await getWhitelist(userID);
   res.json(result);
+  } catch (err) {
+    console.log(err);
+  }
 });
 module.exports = router;

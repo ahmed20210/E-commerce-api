@@ -27,7 +27,7 @@ mongoose
   .catch((err) => console.error("Could not connect to MongoDB...", err));
 
 app.use(bodyParser.json());
-app.use(cors({ credentials: true,origin:true }));
+app.use(cors({ credentials: true, origin: true }));
 
 app.use(cookieParser());
 
@@ -39,36 +39,51 @@ app.use("/cart", OAuth, cart);
 app.use("/whitelist", OAuth, whitelist);
 
 app.get("/categories", async (req, res) => {
-  const categorys = await category;
-  res.json(categorys);
+  try {
+    const categorys = await category;
+    res.json(categorys);
+  } catch (err) {
+    res.status(500).send(err);
+  }
 });
 app.get("/subcategories", async (req, res) => {
-  const subcategorys = subcategory;
-  res.json(subcategorys);
+  try {
+    const subcategorys = subcategory;
+    res.json(subcategorys);
+  } catch (err) {
+    res.status(500).send(err);
+  }
 });
 app.get("/oauth", (req, res, next) => {
-  const token = req.cookies.token;
-  if (token) {
-    JWT.verify(token, "user secret token", (err, decoded) => {
-      if (err) {
-        res.status(401).send("Unauthorized");
-      } else {
-res.status(200).send("Authorized");
-        
-      }
-    });
-  } else {
-     res.status(401).send("Unauthorized");
+  try {
+    const token = req.cookies.token;
+    if (token) {
+      JWT.verify(token, "user secret token", (err, decoded) => {
+        if (err) {
+          res.status(401).send("Unauthorized");
+        } else {
+          res.status(200).send("Authorized");
+        }
+      });
+    } else {
+      res.status(401).send("Unauthorized");
+    }
+  } catch (err) {
+    res.status(500).send(err);
   }
-    
-
 });
 
 app.set("viewengine", "ejs");
 app.get("/", async (req, res) => {
-  res.render("index.ejs", { document, protectedAPIsThatRequireLogin });
+  try {
+    res.render("index.ejs", { document, protectedAPIsThatRequireLogin });
+  } catch (err) {
+    res.status(500).send(err);
+  }
 });
-
+app.use((req, res, next) => {
+  res.status(404).send("404 Not Found");
+});
 // const modifyProduct = async ()=>{
 
 //       const review = "lorem ipsum review goes here"
@@ -91,10 +106,9 @@ app.get("/", async (req, res) => {
 // console.log(newReview);
 //       await newReview.save();
 //     await item.save();
-    
+
 // const p = await Product.findById("62dbf9762dd27153fa116539")
 //   .populate("rate.reviews", "-product")
- 
 
 //   console.log(p.rate.reviews);
 // }

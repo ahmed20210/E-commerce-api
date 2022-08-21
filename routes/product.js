@@ -61,24 +61,47 @@ try{
 });
 
 router.get("/:id", async (req, res) => {
+  try{
   const product = await getProduct(req.params.id);
   res.json(product);
+  } catch(err){
+    console.log(err);
+  }
+
+
 });
 router.get("/category/:category", async (req, res) => {
+  try{
   const products = await getProductsByCategory(req.params.category);
   res.json(products);
+  } catch(err){
+    console.log(err);
+  }
 });
 router.get("/subcategory/:subcategory", async (req, res) => {
+  try{
   const products = await getProductsBySubcategory(req.params.subcategory);
   res.json(products);
+  } catch(err){
+    console.log(err);
+  }
 });
 router.get("/sort/:sort", async (req, res) => {
+  try{
   const products = await sortProducts(req.params.sort);
   res.json(products);
+  } catch(err){
+    console.log(err);
+  }
+
 });
 router.get("/search/:search", async (req, res) => {
+  try{
   const products = await getProductsBySearch(req.params.search);
   res.json(products);
+  } catch(err){
+    console.log(err);
+  }
 });
 
 module.exports = router;
