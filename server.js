@@ -75,7 +75,7 @@ app.get("/oauth", (req, res, next) => {
 
 app.get("/", async (req, res) => {
   try {
-    res.json({
+    res.send({
       document,
       protectedAPIsThatRequireLogin,
     });
