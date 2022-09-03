@@ -225,7 +225,7 @@ const document = {
       ]`,
       body: null,
       request: `
-      axios.get("/product").then((res) => {
+      axios.get("https://e-commerce-backend-2022.herokuapp.com/product").then((res) => {
         return res.data;
         });
         `,
@@ -262,7 +262,7 @@ const document = {
       ]`,
       body: null,
       request: `
-      axios.get("/product/62dbf9762dd27153fa11653d").then((res) => {
+      axios.get("https://e-commerce-backend-2022.herokuapp.com/product/62dbf9762dd27153fa11653d").then((res) => {
         return res.data;
         }
         );`,
@@ -419,7 +419,7 @@ const document = {
       ]`,
       body: null,
       request: `
-      axios.get("/product/category/Laptop").then((res) => {
+      axios.get("https://e-commerce-backend-2022.herokuapp.com/product/category/Laptop").then((res) => {
         return res.data
       })`,
     },
@@ -583,7 +583,7 @@ const document = {
       ]`,
       body: null,
       request: `
-      axios.get("/product/subcategory/Top Rated").then((res) => {
+      axios.get("https://e-commerce-backend-2022.herokuapp.com/product/subcategory/Top Rated").then((res) => {
         return res.data
       })`,
     },
@@ -644,7 +644,7 @@ const document = {
       body: null,
       params: ":search => should be product name or just part of it",
       request: `
-      axios.get("/product/search/Banana Chocolate").then((res) => {
+      axios.get("https://e-commerce-backend-2022.herokuapp.com/product/search/Banana Chocolate").then((res) => {
         return res.data
       })`,
     },
@@ -656,7 +656,7 @@ const document = {
         "Array of all the products sorted by what you choose price or name .....",
       body: null,
       request: `
-      axios.get("/product/sort/price").then((res) => {
+      axios.get("https://e-commerce-backend-2022.herokuapp.com/product/sort/price").then((res) => {
         return res.data
         })`,
     },
@@ -677,7 +677,7 @@ const document = {
     "name": "user name"
 }`,
       request: `
-      axios.post("/product/reviews/5f9f1b9b9b9b9b9b9b9b9b9b/add", {
+      axios.post("https://e-commerce-backend-2022.herokuapp.com/product/reviews/5f9f1b9b9b9b9b9b9b9b9b9b/add", {
         review: "this is a review",
         rating: 5,
       },{
@@ -694,7 +694,7 @@ const document = {
       id: "product id",
       return: "review deleted",
       request: `
-      axios.delete("/product/reviews/5f9f1b9b9b9b9b9b9b9b9b9b/delete",{},{
+      axios.delete("https://e-commerce-backend-2022.herokuapp.com/product/reviews/5f9f1b9b9b9b9b9b9b9b9b9b/delete",{},{
         withCredentials: true,
       }
       ).then((res) => {
@@ -716,7 +716,7 @@ const document = {
     "name": "user name"
 }`,
       request: `
-      axios.put("/product/reviews/5f9f1b9b9b9b9b9b9b9b9b9b/update", {
+      axios.put("https://e-commerce-backend-2022.herokuapp.com/product/reviews/5f9f1b9b9b9b9b9b9b9b9b9b/update", {
         review: "this is updated review",
         rating: 4,
       },{
@@ -741,7 +741,7 @@ const document = {
     }
 ]`,
       request: `
-      axios.get("/product/reviews/5f9f1b9b9b9b9b9b9b9b9b9b",{
+      axios.get("https://e-commerce-backend-2022.herokuapp.com/product/reviews/5f9f1b9b9b9b9b9b9b9b9b9b",{
         withCredentials: true,
       }).then((res) => {
        return res.data
@@ -761,7 +761,7 @@ const document = {
       },
       return: "User created",
       request: `
-      axios.post("/signup", {
+      axios.post("https://e-commerce-backend-2022.herokuapp.com/signup", {
         name: "user name",
         email: "user email",
         password: "user password",
@@ -779,7 +779,7 @@ const document = {
       },
       return: `"User logged in" and a token will be stored in the cookies`,
       request: `
-      axios.post("/login", {
+      axios.post("https://e-commerce-backend-2022.herokuapp.com/login", {
         email: "user email",
         password: "user password",
       },{
@@ -795,7 +795,7 @@ const document = {
       body: null,
       return: `"User logged out" and the token will be removed from the cookies`,
       request: `
-      axios.get("/logout",{
+      axios.get("https://e-commerce-backend-2022.herokuapp.com/logout",{
         withCredentials: true,
       }).then((res) => {
         return res.data
@@ -826,7 +826,7 @@ const document = {
     "total": 1302
 }`,
       request: `
-      axios.get("/cart",{
+      axios.get("https://e-commerce-backend-2022.herokuapp.com/cart",{
         withCredentials: true,
       },{
         withCredentials: true,
@@ -843,7 +843,7 @@ const document = {
       },
       return: "Added to cart",
       request: `
-      axios.post("/cart/add", {
+      axios.post("https://e-commerce-backend-2022.herokuapp.com/cart/add", {
         productId: "5f9f1b9b9b9b9b9b9b9b9b9b",
       },{
         withCredentials: true,
@@ -860,7 +860,7 @@ const document = {
       },
       return: "array of products in cart",
       request: `
-      axios.post("/cart/delete", {
+      axios.post("https://e-commerce-backend-2022.herokuapp.com/cart/delete", {
         productId: "5f9f1b9b9b9b9b9b9b9b9b9b",
       },{
         withCredentials: true,
@@ -877,7 +877,7 @@ const document = {
       },
       return: "Increased",
       request: `
-      axios.post("/cart/increase", {
+      axios.post("https://e-commerce-backend-2022.herokuapp.com/cart/increase", {
         productId: "5f9f1b9b9b9b9b9b9b9b9b9b",
       },{
         withCredentials: true,
@@ -894,7 +894,7 @@ const document = {
       },
       return: "Decreased",
       request: `
-      axios.post("/cart/decrease", {
+      axios.post("https://e-commerce-backend-2022.herokuapp.com/cart/decrease", {
         productId: "5f9f1b9b9b9b9b9b9b9b9b9b",
       },{
         withCredentials: true,
@@ -909,7 +909,7 @@ const document = {
       body: null,
       return: "Removed all from cart",
       request: `
-      axios.post("/cart/remove",{},{
+      axios.post("https://e-commerce-backend-2022.herokuapp.com/cart/remove",{},{
         withCredentials: true,
           },
       ).then((res) => {
@@ -926,7 +926,7 @@ const document = {
       },
       return: "changed",
       request: `
-      axios.post("/cart/change", {
+      axios.post("https://e-commerce-backend-2022.herokuapp.com/cart/change", {
         productId: "5f9f1b9b9b9b9b9b9b9b9b9b",
         quantity: 2,
       },{
@@ -947,7 +947,7 @@ const document = {
     "orders": []
 }`,
       request: `
-      axios.get("/orders").then((res) => {
+      axios.get("https://e-commerce-backend-2022.herokuapp.com/orders").then((res) => {
         return res.data
       })`,
     },
@@ -975,7 +975,7 @@ const document = {
     "_id": "63137342447c3c5c258aeeb2"
 }`,
       request: `
-      axios.get("/orders/5f9f1b9b9b9b9b9b9b9b9b9b",{
+      axios.get("https://e-commerce-backend-2022.herokuapp.com/orders/5f9f1b9b9b9b9b9b9b9b9b9b",{
         withCredentials: true,
       }).then((res) => {
         return res.data
@@ -1011,7 +1011,7 @@ const document = {
     }
 ]`,
       request: `
-      axios.post("/orders/", {
+      axios.post("https://e-commerce-backend-2022.herokuapp.com/orders/", {
         to: "location",
         phone: 123456789,
         payment: "Cash On Delivery",
@@ -1029,7 +1029,7 @@ const document = {
       params: ":id => order id",
       return: `Order Cancelled`,
       request: `
-      axios.delete("/orders/5f9f1b9b9b9b9b9b9b9b9b9b").then((res) => {
+      axios.delete("https://e-commerce-backend-2022.herokuapp.com/orders/5f9f1b9b9b9b9b9b9b9b9b9b").then((res) => {
         return res.data
       })`,
     },
@@ -1140,7 +1140,7 @@ const document = {
     }
 ]`,
       request: `
-      axios.get("/whitelist/").then((res) => {
+      axios.get("https://e-commerce-backend-2022.herokuapp.com/whitelist/").then((res) => {
       return res.data
       })`,
     },
@@ -1152,7 +1152,7 @@ const document = {
       params: ":id => product id",
       return: "add success",
       request: `
-      axios.post("/whitelist/5f9f1b9b9b9b9b9b9b9b9b9b/add").then((res) => {
+      axios.post("https://e-commerce-backend-2022.herokuapp.com/whitelist/5f9f1b9b9b9b9b9b9b9b9b9b/add").then((res) => {
         return res.data
       })`,
     },
@@ -1164,7 +1164,7 @@ const document = {
       params: ":id => product id",
       return: "remove success",
       request: `
-      axios.post("/whitelist/5f9f1b9b9b9b9b9b9b9b9b9b/remove",{
+      axios.post("https://e-commerce-backend-2022.herokuapp.com/whitelist/5f9f1b9b9b9b9b9b9b9b9b9b/remove",{
         withCredentials: true,
       }).then((res) => {
         return res.data
@@ -1195,7 +1195,7 @@ const document = {
     "Home"
 ]`,
       request: `
-      axios.get("/categories/").then((res) => {
+      axios.get("https://e-commerce-backend-2022.herokuapp.com/categories/").then((res) => {
         return res.data
       })`,
     },
@@ -1215,7 +1215,7 @@ const document = {
     "Hot Deals"
 ]`,
       request: `
-      axios.get("/subcategories/").then((res) => {
+      axios.get("https://e-commerce-backend-2022.herokuapp.com/subcategories/").then((res) => {
         return res.data
       })`,
     },
