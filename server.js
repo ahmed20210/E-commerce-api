@@ -73,10 +73,12 @@ app.get("/oauth", (req, res, next) => {
   }
 });
 
-app.set("viewengine", "ejs");
 app.get("/", async (req, res) => {
   try {
-    res.render("index.ejs", { document, protectedAPIsThatRequireLogin });
+    res.json({
+      document,
+      protectedAPIsThatRequireLogin,
+    });
   } catch (err) {
     res.status(500).send(err);
   }
@@ -84,35 +86,6 @@ app.get("/", async (req, res) => {
 app.use((req, res, next) => {
   res.status(404).send("404 Not Found");
 });
-// const modifyProduct = async ()=>{
-
-//       const review = "lorem ipsum review goes here"
-//       const rating = Math.ceil(Math.random() * 5);
-//       const item = await Product.findById("62dbf9762dd27153fa116539");
-//       const user = await User.findById("62dbddfebf657a1157f265e5");
-// const rate = {
-//   user: "62dbddfebf657a1157f265e5",
-//   product: "62dbf9762dd27153fa116539",
-//   review: review,
-//   rating: rating,
-//   name: user.name,
-// };
-//       const newReview = new Review(rate);
-
-//         item.rate.reviews.push(newReview._id);
-//         item.rate.numberOfReviews += 1;
-//         item.rate.rating =
-//           (item.rate.rating + rating) / item.rate.numberOfReviews;
-// console.log(newReview);
-//       await newReview.save();
-//     await item.save();
-
-// const p = await Product.findById("62dbf9762dd27153fa116539")
-//   .populate("rate.reviews", "-product")
-
-//   console.log(p.rate.reviews);
-// }
-//  modifyProduct();
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

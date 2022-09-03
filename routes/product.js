@@ -22,7 +22,6 @@ const getProductsByCategory = async (category) => {
     "rate.reviews",
     "-user -product"
   );
-  console.log(products);
   return products;
 };
 const getProductsBySubcategory = async (subcategory) => {

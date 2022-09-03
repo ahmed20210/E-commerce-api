@@ -126,7 +126,7 @@ router.get("/:id", async (req, res) => {
   const result = await Review.find({
     user: res.locals.user,
     product: productId,
-  })
+  }).select("-user -__v");
   checkDone(res, result);
 } catch (error) {
   console.log(error);

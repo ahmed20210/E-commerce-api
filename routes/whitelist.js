@@ -12,7 +12,7 @@ const checkDone = (res, result) => {
 const addTOWhitelist = async (userID, productID) => {
   try {
     const user = await User.findById(userID);
-    const product = await User.findById(userID);
+    const product = await Product.findById(productID);
     const checkExist = user.whiteList.find((item) => item.toString() === productID);
     if (!user) {
       return "login frist";

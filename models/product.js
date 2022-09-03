@@ -23,6 +23,8 @@ const subcategory = [
   "Top Rated",
   "Featured",
   "On Sale",
+  "Trending",
+  "Hot Deals",
 ];
 const ProductSchema = new mongoose.Schema({
   name: { type: String, required: true },

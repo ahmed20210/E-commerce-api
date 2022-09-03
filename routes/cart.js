@@ -61,6 +61,9 @@ const modifyCart = async (userId, productId, action, quantity) => {
           cart.total = cart.total - cartItem.price
           cartItem.price = cartItem.quantity * product.price; 
           cart.total = cart.total + cartItem.price;
+           if (cartItem.quantity === 0) {
+             cart.products.splice(cart.products.indexOf(cartItem), 1);
+           }
           await cart.save();
           return "Changed";
         }
