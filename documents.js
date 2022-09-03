@@ -651,7 +651,7 @@ const document = {
     {
       api: "/product/sort/:sort",
       method: "GET",
-      description: "Get products by sort",
+      description: "sort product list",
       return:
         "Array of all the products sorted by what you choose price or name .....",
       body: null,
@@ -665,7 +665,7 @@ const document = {
     {
       api: "/product/reviews/:id/add",
       method: "POST",
-      description: "add review to product",
+      description: "add review",
       body: {
         review: "string",
         rating: "number between 1 and 5",
@@ -689,7 +689,7 @@ const document = {
     {
       api: "/product/reviews/:id/delete",
       method: "DELETE",
-      description: "delete review from product",
+      description: "delete review",
       body: null,
       id: "product id",
       return: "review deleted",
@@ -704,7 +704,7 @@ const document = {
     {
       api: "/product/reviews/:id/update",
       method: "PUT",
-      description: "update review from product",
+      description: "update review",
       body: {
         review: "string",
         rating: "number between 1 and 5",
@@ -728,7 +728,7 @@ const document = {
     {
       api: "/product/reviews/:id",
       method: "GET",
-      description: "Get review of current user",
+      description: "Get user's review",
       body: null,
       params: ":id => product id",
       return: `[
@@ -804,6 +804,37 @@ const document = {
   ],
   cart: [
     {
+      api: "/cart",
+      method: "GET",
+      description: "Get cart",
+      body: null,
+      return: `{
+    "_id": "62ed21ed9b84b26cae39d532",
+    "products": [
+        {
+            "product": {
+                "_id": "62dbf9762dd27153fa116544",
+                "name": "Coffee - Irish Cream",
+                "price": 1302,
+                "image": "https://i.im.ge/2022/06/18/rBOFJF.jpg"
+            },
+            "quantity": 1,
+            "price": 1302,
+            "_id": "63016e9ab8ab3caea9931a36"
+        }
+    ],
+    "total": 1302
+}`,
+      request: `
+      axios.get("/cart",{
+        withCredentials: true,
+      },{
+        withCredentials: true,
+      }).then((res) => {
+        return res.data
+      })`,
+    },
+    {
       api: "/cart/add",
       method: "POST",
       description: "Add product to cart",
@@ -840,17 +871,14 @@ const document = {
     {
       api: "/cart/increase",
       method: "POST",
-      description:
-        "Increase 1 to product quantity in the cart and product must be already in the cart",
+      description: "icrease quantity by 1",
       body: {
         productId: "product id",
-        quantity: "number",
       },
       return: "Increased",
       request: `
       axios.post("/cart/increase", {
         productId: "5f9f1b9b9b9b9b9b9b9b9b9b",
-        quantity: 2,
       },{
         withCredentials: true,
       }).then((res) => {
@@ -860,17 +888,14 @@ const document = {
     {
       api: "/cart/decrease",
       method: "POST",
-      description:
-        "Decrease product quantity in cart that is already in the cart",
+      description: "Decrease quantity by 1",
       body: {
         productId: "product id",
-        quantity: "number",
       },
       return: "Decreased",
       request: `
       axios.post("/cart/decrease", {
         productId: "5f9f1b9b9b9b9b9b9b9b9b9b",
-        quantity: 2,
       },{
         withCredentials: true,
       }).then((res) => {
@@ -880,7 +905,7 @@ const document = {
     {
       api: "/cart/remove",
       method: "POST",
-      description: "Remove all products from cart",
+      description: "clear cart",
       body: null,
       return: "Removed all from cart",
       request: `
@@ -892,30 +917,18 @@ const document = {
       })`,
     },
     {
-      api: "/cart",
-      method: "GET",
-      description: "Get cart",
-      body: null,
-      return: `{
-    "_id": "62ed21ed9b84b26cae39d532",
-    "products": [
-        {
-            "product": {
-                "_id": "62dbf9762dd27153fa116544",
-                "name": "Coffee - Irish Cream",
-                "price": 1302,
-                "image": "https://i.im.ge/2022/06/18/rBOFJF.jpg"
-            },
-            "quantity": 1,
-            "price": 1302,
-            "_id": "63016e9ab8ab3caea9931a36"
-        }
-    ],
-    "total": 1302
-}`,
+      api: "/cart/change",
+      method: "POST",
+      description: "change quantity",
+      body: {
+        productId: "product id",
+        quantity: "number",
+      },
+      return: "changed",
       request: `
-      axios.get("/cart",{
-        withCredentials: true,
+      axios.post("/cart/change", {
+        productId: "5f9f1b9b9b9b9b9b9b9b9b9b",
+        quantity: 2,
       },{
         withCredentials: true,
       }).then((res) => {
@@ -927,7 +940,7 @@ const document = {
     {
       api: "/orders",
       method: "GET",
-      description: "Get all orders",
+      description: "Get orders list",
       body: null,
       return: `{
     "_id": "62ed21ed9b84b26cae39d533",
@@ -941,7 +954,7 @@ const document = {
     {
       api: "/orders/:id",
       method: "GET",
-      description: "Get order by id",
+      description: "Get single order",
       body: null,
       params: ":id => order id",
       return: `{
@@ -971,7 +984,7 @@ const document = {
     {
       api: "/orders/",
       method: "POST",
-      description: "Create order",
+      description: "complete order",
       body: {
         to: "string that will be location of the order",
         phone: "number",
@@ -1022,32 +1035,6 @@ const document = {
     },
   ],
   whitelist: [
-    {
-      api: "/whitelist/:id/add",
-      method: "POST",
-      description: "Add product to whitelist",
-      body: null,
-      params: ":id => product id",
-      return: "add success",
-      request: `
-      axios.post("/whitelist/5f9f1b9b9b9b9b9b9b9b9b9b/add").then((res) => {
-        return res.data
-      })`,
-    },
-    {
-      api: "/whitelist/:id/remove",
-      method: "POST",
-      description: "Delete product from whitelist",
-      body: null,
-      params: ":id => product id",
-      return: "remove success",
-      request: `
-      axios.post("/whitelist/5f9f1b9b9b9b9b9b9b9b9b9b/remove",{
-        withCredentials: true,
-      }).then((res) => {
-        return res.data
-      })`,
-    },
     {
       api: "whitelist/",
       method: "GET",
@@ -1157,12 +1144,38 @@ const document = {
       return res.data
       })`,
     },
+    {
+      api: "/whitelist/:id/add",
+      method: "POST",
+      description: "Add to whitelist",
+      body: null,
+      params: ":id => product id",
+      return: "add success",
+      request: `
+      axios.post("/whitelist/5f9f1b9b9b9b9b9b9b9b9b9b/add").then((res) => {
+        return res.data
+      })`,
+    },
+    {
+      api: "/whitelist/:id/remove",
+      method: "POST",
+      description: "Delete from whitelist",
+      body: null,
+      params: ":id => product id",
+      return: "remove success",
+      request: `
+      axios.post("/whitelist/5f9f1b9b9b9b9b9b9b9b9b9b/remove",{
+        withCredentials: true,
+      }).then((res) => {
+        return res.data
+      })`,
+    },
   ],
   categories: [
     {
       api: "categories/",
       method: "GET",
-      description: "Get all categories",
+      description: "Get categories",
       body: null,
       return: `[
     "Fashion",
@@ -1190,7 +1203,7 @@ const document = {
     {
       api: "subcategories/",
       method: "GET",
-      description: "Get all subcategories",
+      description: "Get subcategories",
       body: null,
       return: `[
     "Best Seller",
