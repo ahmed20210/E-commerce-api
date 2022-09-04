@@ -769,8 +769,12 @@ const document = {
       body: {
         name: "string",
         email: "string in the form of email",
-        password:
-          "string including at least one number and one uppercase and lowercase letter and one special caracter, and at least 8 or more characters",
+        password: `should be string and include at least :
+            one number
+            one uppercase
+            lowercase letter
+            one special caracter, 
+            and at least 8 or more characters`,
       },
       return: "User created",
       request: `
