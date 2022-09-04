@@ -23,7 +23,7 @@ const document = {
         "price": 3640,
         "quantity": 1868,
         "image": "https://i.im.ge/2022/06/18/rBOju1.png",
-        "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
+        "description": "Maecenas leo odio, condimentum id.",
         "category": "Laptop",
         "subcategory": [
             "New Arrival"
@@ -71,7 +71,7 @@ const document = {
         "price": 2767,
         "quantity": 2187,
         "image": "https://i.im.ge/2022/06/18/rBO0Np.png",
-        "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+        "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet.",
         "category": "Food",
         "subcategory": [
             "Top Rated"
@@ -110,7 +110,7 @@ const document = {
         "price": 6396,
         "quantity": 2581,
         "image": "https://i.im.ge/2022/06/18/rBOidq.png",
-        "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus",
+        "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor.",
         "category": "Accessories",
         "subcategory": [
             "New Arrival"
@@ -134,7 +134,7 @@ const document = {
         "price": 5142,
         "quantity": 877,
         "image": "https://i.im.ge/2022/06/18/rBOUJC.png",
-        "description": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus",
+        "description": "Pellentesque at nulla. Suspendisse potenti. Cras.",
         "category": "Accessories",
         "subcategory": [
             "Top Rated"
@@ -166,7 +166,7 @@ const document = {
         "price": 3601,
         "quantity": 968,
         "image": "https://i.im.ge/2022/06/18/rBOLE4.png",
-        "description": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+        "description": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus.",
         "category": "Accessories",
         "subcategory": [
             "Best Seller"
@@ -190,7 +190,7 @@ const document = {
         "price": 685,
         "quantity": 1131,
         "image": "https://i.im.ge/2022/06/18/rBOIID.png",
-        "description": "Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
+        "description": "Sed sagittis. Nam congue, risus semper porta volutpat.",
         "category": "Accessories",
         "subcategory": [
             "Best Seller"
@@ -214,7 +214,7 @@ const document = {
         "price": 4617,
         "quantity": 771,
         "image": "https://i.im.ge/2022/06/18/rBODMY.png",
-        "description": "Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictums.",
+        "description": "Suspendisse potenti. In eleifend quam a odio.",
         "category": "Accessories",
         "subcategory": [
             "Top Rated"
@@ -250,7 +250,7 @@ const document = {
     "price": 4617,
     "quantity": 771,
     "image": "https://i.im.ge/2022/06/18/rBODMY.png",
-    "description": "Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.",
+    "description": "Suspendisse potenti. In eleifend quam a odio.",
     "category": "Accessories",
     "subcategory": [
         "Top Rated"
@@ -285,7 +285,7 @@ const document = {
         "price": 8889,
         "quantity": 1923,
         "image": "https://i.im.ge/2022/06/18/rBOp98.png",
-        "description": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus",
+        "description": "Pellentesque at nulla. Suspendisse potenti. ",
         "category": "Laptop",
         "subcategory": [
             "Top Rated"
@@ -309,7 +309,7 @@ const document = {
         "price": 9374,
         "quantity": 2758,
         "image": "https://i.im.ge/2022/06/18/rBOHFX.png",
-        "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
+        "description": "Praesent id massa id nisl venenatis lacinia.",
         "category": "Laptop",
         "subcategory": [
             "Featured"
@@ -333,7 +333,7 @@ const document = {
         "price": 8846,
         "quantity": 4269,
         "image": "https://i.im.ge/2022/06/18/rBOkk9.jpg",
-        "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.",
+        "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in.",
         "category": "Laptop",
         "subcategory": [
             "Featured"
@@ -357,7 +357,7 @@ const document = {
         "price": 4049,
         "quantity": 3303,
         "image": "https://i.im.ge/2022/06/18/rBOfPK.png",
-        "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui",
+        "description": "Maecenas leo odio, condimentum id, luctus nec.",
         "category": "Laptop",
         "subcategory": [
             "Featured"
@@ -381,7 +381,7 @@ const document = {
         "price": 3838,
         "quantity": 3260,
         "image": "https://i.im.ge/2022/06/18/rBOVqF.jpg",
-        "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+        "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id.",
         "category": "Laptop",
         "subcategory": [
             "Top Rated"
@@ -405,7 +405,7 @@ const document = {
         "price": 9065,
         "quantity": 3042,
         "image": "https://i.im.ge/2022/06/18/rBOZn6.png",
-        "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
+        "description": "Praesent id massa id nisl venenatis lacinia.",
         "category": "Laptop",
         "subcategory": [
             "Top Rated"
@@ -440,7 +440,7 @@ const document = {
         "price": 2767,
         "quantity": 2187,
         "image": "https://i.im.ge/2022/06/18/rBO0Np.png",
-        "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+        "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet.",
         "category": "Accessories",
         "subcategory": [
             "Top Rated"
@@ -464,7 +464,7 @@ const document = {
         "price": 5142,
         "quantity": 877,
         "image": "https://i.im.ge/2022/06/18/rBOUJC.png",
-        "description": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.",
+        "description": "Pellentesque at nulla. Suspendisse potenti. Cras in purus.",
         "category": "Accessories",
         "subcategory": [
             "Top Rated"
@@ -488,7 +488,7 @@ const document = {
         "price": 4617,
         "quantity": 771,
         "image": "https://i.im.ge/2022/06/18/rBODMY.png",
-        "description": "Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.nMaecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.",
+        "description": "Suspendisse potenti. In eleifend quam a odio.",
         "category": "Accessories",
         "subcategory": [
             "Top Rated"
@@ -520,7 +520,7 @@ const document = {
         "price": 2996,
         "quantity": 4574,
         "image": "https://i.im.ge/2022/06/18/rBOqr8.jpg",
-        "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.",
+        "description": "Vestibulum quam sapien, varius ut, blandit non.",
         "category": "Accessories",
         "subcategory": [
             "Top Rated"
@@ -544,7 +544,7 @@ const document = {
         "price": 1766,
         "quantity": 4546,
         "image": "https://i.im.ge/2022/06/18/rBOlMS.jpg",
-        "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.",
+        "description": "Cum sociis natoque penatibus et magnis dis parturient montes.",
         "category": "Accessories",
         "subcategory": [
             "Top Rated"
@@ -568,7 +568,7 @@ const document = {
         "price": 4946,
         "quantity": 4885,
         "image": "https://i.im.ge/2022/06/17/rBuzaF.jpg",
-        "description": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
+        "description": "In quis justo. Maecenas rhoncus aliquam lacus.",
         "category": "Health&GYM",
         "subcategory": [
             "Top Rated"
@@ -603,7 +603,7 @@ const document = {
         "price": 2767,
         "quantity": 2187,
         "image": "https://i.im.ge/2022/06/18/rBO0Np.png",
-        "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+        "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id.",
         "category": "Accessories",
         "subcategory": [
             "Top Rated"
@@ -627,7 +627,7 @@ const document = {
         "price": 4049,
         "quantity": 3303,
         "image": "https://i.im.ge/2022/06/18/rBOfPK.png",
-        "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.\n\nMaecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",
+        "description": "Maecenas leo odio, condimentum id.",
         "category": "Laptop",
         "subcategory": [
             "Featured"
@@ -1047,7 +1047,7 @@ const document = {
         "price": 6211,
         "quantity": 3442,
         "image": "https://i.im.ge/2022/06/17/rBuJ1X.jpg",
-        "description": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
+        "description": "Duis aliquam convallis nunc. Proin at turpis a pede posuere.",
         "category": "Health&GYM",
         "subcategory": [
             "Best Seller"
@@ -1072,7 +1072,7 @@ const document = {
         "price": 6396,
         "quantity": 2581,
         "image": "https://i.im.ge/2022/06/18/rBOidq.png",
-        "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus",
+        "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor.",
         "category": "Accessories",
         "subcategory": [
             "New Arrival"
@@ -1096,7 +1096,7 @@ const document = {
         "price": 3640,
         "quantity": 1868,
         "image": "https://i.im.ge/2022/06/18/rBOju1.png",
-        "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
+        "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed.",
         "category": "Accessories",
         "subcategory": [
             "New Arrival"
@@ -1120,7 +1120,7 @@ const document = {
         "price": 9337,
         "quantity": 1101,
         "image": "https://i.im.ge/2022/06/18/rBO1SK.png",
-        "description": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",
+        "description": "Maecenas tristique, est et tempus semper, est quam pharetra.",
         "category": "Accessories",
         "subcategory": [
             "New Arrival"
