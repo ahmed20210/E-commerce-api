@@ -6,8 +6,7 @@ const document = {
       api: "/product",
       method: "GET",
       description: "Get all products",
-      return: `[
-         {
+      return: `[{
         "rate": {
             "reviews": [],
             "rating": 0,
@@ -234,8 +233,7 @@ const document = {
       api: "/product/:id",
       method: "GET",
       description: "Get product by id",
-      return: `[
-        {
+      return: `{
     "rate": {
         "reviews": [],
         "rating": 0,
@@ -258,8 +256,7 @@ const document = {
         "Top Rated"
     ],
     "__v": 0
-}
-      ]`,
+}`,
       body: null,
       request: `
       axios.get("https://e-commerce-backend-2022.herokuapp.com/product/62dbf9762dd27153fa11653d").then((res) => {
@@ -271,8 +268,7 @@ const document = {
       api: "product/category/:category",
       method: "GET",
       description: "Get products by category",
-      return: `[
-         {
+      return: `[{
         "rate": {
             "reviews": [],
             "rating": 0,
@@ -427,8 +423,7 @@ const document = {
       api: "/product/subcategory/:subcategory",
       method: "GET",
       description: "Get products by subcategory",
-      return: `[
-         {
+      return: `[{
         "rate": {
             "reviews": [],
             "rating": 0,
@@ -591,8 +586,7 @@ const document = {
       api: "/product/search/:search",
       method: "GET",
       description: "Get products by search",
-      return: `[
-    {
+      return: `[{
         "rate": {
             "reviews": [],
             "rating": 0,
@@ -731,8 +725,7 @@ const document = {
       description: "Get user's review",
       body: null,
       params: ":id => product id",
-      return: `[
-    {
+      return: `[{
         "_id": "631351fd433cae23360c24b5",
         "product": "62dbf9762dd27153fa116538",
         "review": "this is a review",
@@ -809,7 +802,7 @@ const document = {
       description: "Get cart",
       body: null,
       return: `{
-    "_id": "62ed21ed9b84b26cae39d532",
+        "_id": "62ed21ed9b84b26cae39d532",
     "products": [
         {
             "product": {
@@ -957,9 +950,7 @@ const document = {
       description: "Get single order",
       body: null,
       params: ":id => order id",
-      return: `{
-    "products": [
-        {
+      return: `{   "products": [ {
             "product": "62dbf9762dd27153fa116538",
             "quantity": 1,
             "price": 2767,
@@ -991,8 +982,7 @@ const document = {
         payment: "string that will be payment method of the order",
         notes: "string that will be notes of the order and it is optional",
       },
-      return: `[
-    {
+      return: `[{
         "products": [
             {
                 "product": "62dbf9762dd27153fa116538",
@@ -1040,8 +1030,7 @@ const document = {
       method: "GET",
       description: "Get whitelist",
       body: null,
-      return: `[
-    {
+      return: `[{
         "rate": {
             "reviews": [],
             "rating": 0,
@@ -1177,23 +1166,7 @@ const document = {
       method: "GET",
       description: "Get categories",
       body: null,
-      return: `[
-    "Fashion",
-    "Smartphone",
-    "Laptop",
-    "Camera",
-    "Watches",
-    "Electronics",
-    "TV",
-    "Accessories",
-    "Food",
-    "Health&GYM",
-    "Shoes",
-    "Jewellery",
-    "Motors",
-    "Bags",
-    "Home"
-]`,
+      return: `[ "Fashion","Smartphone","Laptop", "Camera", "Watches", "Electronics", "TV", "Accessories", "Food", "Health&GYM", "Shoes", "Jewellery", "Motors", "Bags", "Home"]`,
       request: `
       axios.get("https://e-commerce-backend-2022.herokuapp.com/categories/").then((res) => {
         return res.data
@@ -1205,15 +1178,7 @@ const document = {
       method: "GET",
       description: "Get subcategories",
       body: null,
-      return: `[
-    "Best Seller",
-    "New Arrival",
-    "Top Rated",
-    "Featured",
-    "On Sale",
-    "Trending",
-    "Hot Deals"
-]`,
+      return: `["Best Seller","New Arrival","Top Rated","Featured","On Sale","Trending","Hot Deals"]`,
       request: `
       axios.get("https://e-commerce-backend-2022.herokuapp.com/subcategories/").then((res) => {
         return res.data
