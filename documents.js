@@ -6,7 +6,8 @@ const document = {
       api: "/product",
       method: "GET",
       description: "Get all products",
-      return: `[{
+      return: `[
+    {
         "rate": {
             "reviews": [],
             "rating": 0,
@@ -16,15 +17,16 @@ const document = {
             "value": 0,
             "available": false,
             "startDate": "2022-07-23T13:36:54.210Z",
-            "endDate": "2022-07-23T13:36:54.210Z"
+            "endDate": "2022-07-23T13:36:54.210Z",
+            "pricebefore": 1151
         },
         "_id": "62dbf9762dd27153fa116536",
         "name": "Teriyaki Sauce",
-        "price": 3640,
+        "price": 1151,
         "quantity": 1868,
         "image": "https://i.im.ge/2022/06/18/rBOju1.png",
-        "description": "Maecenas leo odio, condimentum id.",
-        "category": "Laptop",
+        "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed.",
+        "category": "Accessories",
         "subcategory": [
             "New Arrival"
         ],
@@ -37,53 +39,64 @@ const document = {
             "numberOfReviews": 0
         },
         "Sale": {
-            "value": 0,
-            "available": false,
+            "value": 70,
+            "available": true,
             "startDate": "2022-07-23T13:36:54.211Z",
-            "endDate": "2022-07-23T13:36:54.211Z"
+            "endDate": "2022-07-23T13:36:54.211Z",
+            "pricebefore": 1711
         },
         "_id": "62dbf9762dd27153fa116537",
         "name": "Cinnamon Rolls",
-        "price": 4730,
+        "price": 514,
         "quantity": 4337,
         "image": "https://i.im.ge/2022/06/18/rBO5fP.png",
-        "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id.",
-        "category": "Smartphone",
+        "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet.",
+        "category": "Accessories",
         "subcategory": [
-            "Featured"
+            "Featured",
+            "On Sale"
         ],
-        "__v": 0
+        "__v": 3
     },
     {
         "rate": {
-            "reviews": [],
-            "rating": 0,
-            "numberOfReviews": 0
+            "reviews": [
+                {
+                    "_id": "631351fd433cae23360c24b5",
+                    "review": "this is a review",
+                    "rating": 5,
+                    "name": "am",
+                    "__v": 0
+                }
+            ],
+            "rating": 5,
+            "numberOfReviews": 1
         },
         "Sale": {
             "value": 0,
             "available": false,
             "startDate": "2022-07-23T13:36:54.212Z",
-            "endDate": "2022-07-23T13:36:54.212Z"
+            "endDate": "2022-07-23T13:36:54.212Z",
+            "pricebefore": 368
         },
         "_id": "62dbf9762dd27153fa116538",
         "name": "Mousse - Banana Chocolate",
-        "price": 2767,
+        "price": 368,
         "quantity": 2187,
         "image": "https://i.im.ge/2022/06/18/rBO0Np.png",
-        "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet.",
-        "category": "Food",
+        "description": "Mauris enim leo, rhoncus sed, vestibulum sit.",
+        "category": "Accessories",
         "subcategory": [
             "Top Rated"
         ],
-        "__v": 0
+        "__v": 1
     },
     {
         "rate": {
             "reviews": [
                 {
                     "_id": "62ebaf5575ddadeff1882adb",
-                    "review": "good",
+                    "review": "tgj",
                     "rating": 4,
                     "name": "ziad",
                     "__v": 0
@@ -96,21 +109,22 @@ const document = {
                     "__v": 0
                 }
             ],
-            "rating": 4,
-            "numberOfReviews": 2
+            "rating": 1,
+            "numberOfReviews": 8
         },
         "Sale": {
             "value": 0,
             "available": false,
             "startDate": "2022-07-23T13:36:54.212Z",
-            "endDate": "2022-07-23T13:36:54.212Z"
+            "endDate": "2022-07-23T13:36:54.212Z",
+            "pricebefore": 377
         },
         "_id": "62dbf9762dd27153fa116539",
         "name": "Oysters - Smoked",
-        "price": 6396,
+        "price": 377,
         "quantity": 2581,
         "image": "https://i.im.ge/2022/06/18/rBOidq.png",
-        "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor.",
+        "description": "Duis consequat dui nec nisi volutpat eleifend.",
         "category": "Accessories",
         "subcategory": [
             "New Arrival"
@@ -124,104 +138,26 @@ const document = {
             "numberOfReviews": 0
         },
         "Sale": {
-            "value": 0,
-            "available": false,
+            "value": 61,
+            "available": true,
             "startDate": "2022-07-23T13:36:54.213Z",
-            "endDate": "2022-07-23T13:36:54.213Z"
+            "endDate": "2022-07-23T13:36:54.213Z",
+            "pricebefore": 1327
         },
         "_id": "62dbf9762dd27153fa11653a",
         "name": "Dill Weed - Dry",
-        "price": 5142,
+        "price": 518,
         "quantity": 877,
         "image": "https://i.im.ge/2022/06/18/rBOUJC.png",
-        "description": "Pellentesque at nulla. Suspendisse potenti. Cras.",
+        "description": "Pellentesque at nulla. Suspendisse potenti.",
         "category": "Accessories",
         "subcategory": [
-            "Top Rated"
-        ],
-        "__v": 0
-    },
-    {
-        "rate": {
-            "reviews": [
-                {
-                    "_id": "62fb768231bf6e5007deb2fd",
-                    "review": "",
-                    "rating": 3,
-                    "name": "am",
-                    "__v": 0
-                }
-            ],
-            "rating": 3,
-            "numberOfReviews": 1
-        },
-        "Sale": {
-            "value": 0,
-            "available": false,
-            "startDate": "2022-07-23T13:36:54.213Z",
-            "endDate": "2022-07-23T13:36:54.213Z"
-        },
-        "_id": "62dbf9762dd27153fa11653b",
-        "name": "Tomato Paste",
-        "price": 3601,
-        "quantity": 968,
-        "image": "https://i.im.ge/2022/06/18/rBOLE4.png",
-        "description": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus.",
-        "category": "Accessories",
-        "subcategory": [
-            "Best Seller"
+            "Top Rated",
+            "On Sale"
         ],
         "__v": 1
-    },
-    {
-        "rate": {
-            "reviews": [],
-            "rating": 0,
-            "numberOfReviews": 0
-        },
-        "Sale": {
-            "value": 0,
-            "available": false,
-            "startDate": "2022-07-23T13:36:54.214Z",
-            "endDate": "2022-07-23T13:36:54.214Z"
-        },
-        "_id": "62dbf9762dd27153fa11653c",
-        "name": "Pie Shell - 9",
-        "price": 685,
-        "quantity": 1131,
-        "image": "https://i.im.ge/2022/06/18/rBOIID.png",
-        "description": "Sed sagittis. Nam congue, risus semper porta volutpat.",
-        "category": "Accessories",
-        "subcategory": [
-            "Best Seller"
-        ],
-        "__v": 0
-    },
-    {
-        "rate": {
-            "reviews": [],
-            "rating": 0,
-            "numberOfReviews": 0
-        },
-        "Sale": {
-            "value": 0,
-            "available": false,
-            "startDate": "2022-07-23T13:36:54.214Z",
-            "endDate": "2022-07-23T13:36:54.214Z"
-        },
-        "_id": "62dbf9762dd27153fa11653d",
-        "name": "Bread - Bistro White",
-        "price": 4617,
-        "quantity": 771,
-        "image": "https://i.im.ge/2022/06/18/rBODMY.png",
-        "description": "Suspendisse potenti. In eleifend quam a odio.",
-        "category": "Accessories",
-        "subcategory": [
-            "Top Rated"
-        ],
-        "__v": 0
-    },
-      ]`,
+    }
+]`,
       body: null,
       request: `
       axios.get(
@@ -245,7 +181,8 @@ const document = {
         "value": 0,
         "available": false,
         "startDate": "2022-07-23T13:36:54.214Z",
-        "endDate": "2022-07-23T13:36:54.214Z"
+        "endDate": "2022-07-23T13:36:54.214Z",
+        "pricebefore": 4617
     },
     "_id": "62dbf9762dd27153fa11653d",
     "name": "Bread - Bistro White",
@@ -272,7 +209,8 @@ const document = {
       api: "product/category/:category",
       method: "GET",
       description: "Get products by category",
-      return: `[{
+      return: `[
+    {
         "rate": {
             "reviews": [],
             "rating": 0,
@@ -282,14 +220,15 @@ const document = {
             "value": 0,
             "available": false,
             "startDate": "2022-07-23T13:36:54.237Z",
-            "endDate": "2022-07-23T13:36:54.237Z"
+            "endDate": "2022-07-23T13:36:54.237Z",
+            "pricebefore": 1052
         },
         "_id": "62dbf9762dd27153fa1165c6",
         "name": "Onion Powder",
-        "price": 8889,
+        "price": 1052,
         "quantity": 1923,
         "image": "https://i.im.ge/2022/06/18/rBOp98.png",
-        "description": "Pellentesque at nulla. Suspendisse potenti. ",
+        "description": "Pellentesque at nulla. Suspendisse potenti.",
         "category": "Laptop",
         "subcategory": [
             "Top Rated"
@@ -303,22 +242,24 @@ const document = {
             "numberOfReviews": 0
         },
         "Sale": {
-            "value": 0,
-            "available": false,
+            "value": 65,
+            "available": true,
             "startDate": "2022-07-23T13:36:54.237Z",
-            "endDate": "2022-07-23T13:36:54.237Z"
+            "endDate": "2022-07-23T13:36:54.237Z",
+            "pricebefore": 278
         },
         "_id": "62dbf9762dd27153fa1165c7",
         "name": "Miso - Soy Bean Paste",
-        "price": 9374,
+        "price": 98,
         "quantity": 2758,
         "image": "https://i.im.ge/2022/06/18/rBOHFX.png",
         "description": "Praesent id massa id nisl venenatis lacinia.",
         "category": "Laptop",
         "subcategory": [
-            "Featured"
+            "Featured",
+            "On Sale"
         ],
-        "__v": 0
+        "__v": 1
     },
     {
         "rate": {
@@ -327,96 +268,26 @@ const document = {
             "numberOfReviews": 0
         },
         "Sale": {
-            "value": 0,
-            "available": false,
+            "value": 13,
+            "available": true,
             "startDate": "2022-07-23T13:36:54.239Z",
-            "endDate": "2022-07-23T13:36:54.239Z"
+            "endDate": "2022-07-23T13:36:54.239Z",
+            "pricebefore": 1058
         },
         "_id": "62dbf9762dd27153fa1165c8",
         "name": "Beer - Camerons Auburn",
-        "price": 8846,
+        "price": 921,
         "quantity": 4269,
         "image": "https://i.im.ge/2022/06/18/rBOkk9.jpg",
-        "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in.",
+        "description": "Vestibulum quam sapien, varius ut, blandit non.",
         "category": "Laptop",
         "subcategory": [
-            "Featured"
+            "Featured",
+            "On Sale"
         ],
-        "__v": 0
-    },
-    {
-        "rate": {
-            "reviews": [],
-            "rating": 0,
-            "numberOfReviews": 0
-        },
-        "Sale": {
-            "value": 0,
-            "available": false,
-            "startDate": "2022-07-23T13:36:54.239Z",
-            "endDate": "2022-07-23T13:36:54.239Z"
-        },
-        "_id": "62dbf9762dd27153fa1165c9",
-        "name": "Mousse - Banana Chocolate",
-        "price": 4049,
-        "quantity": 3303,
-        "image": "https://i.im.ge/2022/06/18/rBOfPK.png",
-        "description": "Maecenas leo odio, condimentum id, luctus nec.",
-        "category": "Laptop",
-        "subcategory": [
-            "Featured"
-        ],
-        "__v": 0
-    },
-    {
-        "rate": {
-            "reviews": [],
-            "rating": 0,
-            "numberOfReviews": 0
-        },
-        "Sale": {
-            "value": 0,
-            "available": false,
-            "startDate": "2022-07-23T13:36:54.239Z",
-            "endDate": "2022-07-23T13:36:54.239Z"
-        },
-        "_id": "62dbf9762dd27153fa1165ca",
-        "name": "Pineapple - Golden",
-        "price": 3838,
-        "quantity": 3260,
-        "image": "https://i.im.ge/2022/06/18/rBOVqF.jpg",
-        "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id.",
-        "category": "Laptop",
-        "subcategory": [
-            "Top Rated"
-        ],
-        "__v": 0
-    },
-    {
-        "rate": {
-            "reviews": [],
-            "rating": 0,
-            "numberOfReviews": 0
-        },
-        "Sale": {
-            "value": 0,
-            "available": false,
-            "startDate": "2022-07-23T13:36:54.240Z",
-            "endDate": "2022-07-23T13:36:54.240Z"
-        },
-        "_id": "62dbf9762dd27153fa1165cb",
-        "name": "Squid - U 5",
-        "price": 9065,
-        "quantity": 3042,
-        "image": "https://i.im.ge/2022/06/18/rBOZn6.png",
-        "description": "Praesent id massa id nisl venenatis lacinia.",
-        "category": "Laptop",
-        "subcategory": [
-            "Top Rated"
-        ],
-        "__v": 0
+        "__v": 1
     }
-      ]`,
+]`,
       body: null,
       request: `
       axios.get(
@@ -429,30 +300,7 @@ const document = {
       api: "/product/subcategory/:subcategory",
       method: "GET",
       description: "Get products by subcategory",
-      return: `[{
-        "rate": {
-            "reviews": [],
-            "rating": 0,
-            "numberOfReviews": 0
-        },
-        "Sale": {
-            "value": 0,
-            "available": false,
-            "startDate": "2022-07-23T13:36:54.212Z",
-            "endDate": "2022-07-23T13:36:54.212Z"
-        },
-        "_id": "62dbf9762dd27153fa116538",
-        "name": "Mousse - Banana Chocolate",
-        "price": 2767,
-        "quantity": 2187,
-        "image": "https://i.im.ge/2022/06/18/rBO0Np.png",
-        "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet.",
-        "category": "Accessories",
-        "subcategory": [
-            "Top Rated"
-        ],
-        "__v": 0
-    },
+      return: `[
     {
         "rate": {
             "reviews": [],
@@ -460,78 +308,25 @@ const document = {
             "numberOfReviews": 0
         },
         "Sale": {
-            "value": 0,
-            "available": false,
-            "startDate": "2022-07-23T13:36:54.213Z",
-            "endDate": "2022-07-23T13:36:54.213Z"
-        },
-        "_id": "62dbf9762dd27153fa11653a",
-        "name": "Dill Weed - Dry",
-        "price": 5142,
-        "quantity": 877,
-        "image": "https://i.im.ge/2022/06/18/rBOUJC.png",
-        "description": "Pellentesque at nulla. Suspendisse potenti. Cras in purus.",
-        "category": "Accessories",
-        "subcategory": [
-            "Top Rated"
-        ],
-        "__v": 0
-    },
-    {
-        "rate": {
-            "reviews": [],
-            "rating": 0,
-            "numberOfReviews": 0
-        },
-        "Sale": {
-            "value": 0,
-            "available": false,
+            "value": 6,
+            "available": true,
             "startDate": "2022-07-23T13:36:54.214Z",
-            "endDate": "2022-07-23T13:36:54.214Z"
+            "endDate": "2022-07-23T13:36:54.214Z",
+            "pricebefore": 1638
         },
-        "_id": "62dbf9762dd27153fa11653d",
-        "name": "Bread - Bistro White",
-        "price": 4617,
-        "quantity": 771,
-        "image": "https://i.im.ge/2022/06/18/rBODMY.png",
-        "description": "Suspendisse potenti. In eleifend quam a odio.",
+        "_id": "62dbf9762dd27153fa11653e",
+        "name": "Sage - Ground",
+        "price": 1540,
+        "quantity": 4048,
+        "image": "https://i.im.ge/2022/06/18/rBOa8M.png",
+        "description": "Morbi non lectus. Aliquam sit amet diam in magna bibendum.",
         "category": "Accessories",
         "subcategory": [
-            "Top Rated"
+            "Best Seller",
+            "Hot Deals",
+            "On Sale"
         ],
-        "__v": 0
-    },
-    {
-        "rate": {
-            "reviews": [
-                {
-                    "_id": "62ebb0cc75ddadeff1882afa",
-                    "review": "good",
-                    "rating": 4,
-                    "name": "ziad",
-                    "__v": 0
-                }
-            ],
-            "rating": 4,
-            "numberOfReviews": 1
-        },
-        "Sale": {
-            "value": 0,
-            "available": false,
-            "startDate": "2022-07-23T13:36:54.215Z",
-            "endDate": "2022-07-23T13:36:54.215Z"
-        },
-        "_id": "62dbf9762dd27153fa116540",
-        "name": "Chicken - Diced, Cooked",
-        "price": 2996,
-        "quantity": 4574,
-        "image": "https://i.im.ge/2022/06/18/rBOqr8.jpg",
-        "description": "Vestibulum quam sapien, varius ut, blandit non.",
-        "category": "Accessories",
-        "subcategory": [
-            "Top Rated"
-        ],
-        "__v": 1
+        "__v": 5
     },
     {
         "rate": {
@@ -542,46 +337,51 @@ const document = {
         "Sale": {
             "value": 0,
             "available": false,
-            "startDate": "2022-07-23T13:36:54.217Z",
-            "endDate": "2022-07-23T13:36:54.217Z"
+            "startDate": "2022-07-23T13:36:54.219Z",
+            "endDate": "2022-07-23T13:36:54.219Z",
+            "pricebefore": 584
         },
-        "_id": "62dbf9762dd27153fa116547",
-        "name": "Water - Spring Water 500ml",
-        "price": 1766,
-        "quantity": 4546,
-        "image": "https://i.im.ge/2022/06/18/rBOlMS.jpg",
-        "description": "Cum sociis natoque penatibus et magnis dis parturient montes.",
-        "category": "Accessories",
-        "subcategory": [
-            "Top Rated"
-        ],
-        "__v": 0
-    },
-    {
-        "rate": {
-            "reviews": [],
-            "rating": 0,
-            "numberOfReviews": 0
-        },
-        "Sale": {
-            "value": 0,
-            "available": false,
-            "startDate": "2022-07-23T13:36:54.218Z",
-            "endDate": "2022-07-23T13:36:54.218Z"
-        },
-        "_id": "62dbf9762dd27153fa116552",
-        "name": "Wooden Mop Handle",
-        "price": 4946,
-        "quantity": 4885,
-        "image": "https://i.im.ge/2022/06/17/rBuzaF.jpg",
-        "description": "In quis justo. Maecenas rhoncus aliquam lacus.",
+        "_id": "62dbf9762dd27153fa116553",
+        "name": "Flour - Strong",
+        "price": 584,
+        "quantity": 960,
+        "image": "https://i.im.ge/2022/06/17/rBufB6.jpg",
+        "description": "Pellentesque at nulla. Suspendisse potenti.",
         "category": "Health&GYM",
         "subcategory": [
-            "Top Rated"
+            "Top Rated",
+            "Trending",
+            "Hot Deals"
+        ],
+        "__v": 2
+    },
+    {
+        "rate": {
+            "reviews": [],
+            "rating": 0,
+            "numberOfReviews": 0
+        },
+        "Sale": {
+            "value": 0,
+            "available": false,
+            "startDate": "2022-07-23T13:36:54.221Z",
+            "endDate": "2022-07-23T13:36:54.221Z",
+            "pricebefore": 605
+        },
+        "_id": "62dbf9762dd27153fa116562",
+        "name": "Chips - Doritos",
+        "price": 605,
+        "quantity": 4296,
+        "image": "https://i.im.ge/2022/06/17/rBuhUD.jpg",
+        "description": "Curabitur in libero ut massa volutpat convallis.",
+        "category": "Shoes",
+        "subcategory": [
+            "New Arrival",
+            "Hot Deals"
         ],
         "__v": 1
-    },
-      ]`,
+    }
+]`,
       body: null,
       request: `
       axios.get(
@@ -604,7 +404,8 @@ const document = {
             "value": 0,
             "available": false,
             "startDate": "2022-07-23T13:36:54.212Z",
-            "endDate": "2022-07-23T13:36:54.212Z"
+            "endDate": "2022-07-23T13:36:54.212Z",
+            "pricebefore": 2767
         },
         "_id": "62dbf9762dd27153fa116538",
         "name": "Mousse - Banana Chocolate",
@@ -628,7 +429,8 @@ const document = {
             "value": 0,
             "available": false,
             "startDate": "2022-07-23T13:36:54.239Z",
-            "endDate": "2022-07-23T13:36:54.239Z"
+            "endDate": "2022-07-23T13:36:54.239Z",
+            "pricebefore":4049
         },
         "_id": "62dbf9762dd27153fa1165c9",
         "name": "Mousse - Banana Chocolate",
@@ -665,6 +467,286 @@ const document = {
       .then((res) => {
         return res.data
         })`,
+    },
+    {
+      api: "/product/limit/:list/:limit",
+      method: "GET",
+      description: "Get limited number of products",
+      return: `[
+    {
+        "rate": {
+            "reviews": [],
+            "rating": 0,
+            "numberOfReviews": 0
+        },
+        "Sale": {
+            "value": 6,
+            "available": true,
+            "startDate": "2022-07-23T13:36:54.214Z",
+            "endDate": "2022-07-23T13:36:54.214Z",
+            "pricebefore": 1638
+        },
+        "_id": "62dbf9762dd27153fa11653e",
+        "name": "Sage - Ground",
+        "price": 1540,
+        "quantity": 4048,
+        "image": "https://i.im.ge/2022/06/18/rBOa8M.png",
+        "description": "Morbi non lectus. Aliquam sit amet diam in magna bibendum.",
+        "category": "Accessories",
+        "subcategory": [
+            "Best Seller",
+            "Hot Deals",
+            "On Sale"
+        ],
+        "__v": 5
+    },
+    {
+        "rate": {
+            "reviews": [],
+            "rating": 0,
+            "numberOfReviews": 0
+        },
+        "Sale": {
+            "value": 0,
+            "available": false,
+            "startDate": "2022-07-23T13:36:54.219Z",
+            "endDate": "2022-07-23T13:36:54.219Z",
+            "pricebefore": 584
+        },
+        "_id": "62dbf9762dd27153fa116553",
+        "name": "Flour - Strong",
+        "price": 584,
+        "quantity": 960,
+        "image": "https://i.im.ge/2022/06/17/rBufB6.jpg",
+        "description": "Pellentesque at nulla. Suspendisse potenti.",
+        "category": "Health&GYM",
+        "subcategory": [
+            "Top Rated",
+            "Trending",
+            "Hot Deals"
+        ],
+        "__v": 2
+    },
+    {
+        "rate": {
+            "reviews": [],
+            "rating": 0,
+            "numberOfReviews": 0
+        },
+        "Sale": {
+            "value": 0,
+            "available": false,
+            "startDate": "2022-07-23T13:36:54.221Z",
+            "endDate": "2022-07-23T13:36:54.221Z",
+            "pricebefore": 605
+        },
+        "_id": "62dbf9762dd27153fa116562",
+        "name": "Chips - Doritos",
+        "price": 605,
+        "quantity": 4296,
+        "image": "https://i.im.ge/2022/06/17/rBuhUD.jpg",
+        "description": "Curabitur in libero ut massa volutpat convallis.",
+        "category": "Shoes",
+        "subcategory": [
+            "New Arrival",
+            "Hot Deals"
+        ],
+        "__v": 1
+    }
+]`,
+      params: `:list => number of page / :limit => number of products in each page`,
+      request: `
+      axios.get(
+        "https://e-commerce-backend-2022.herokuapp.com/product/limit/1/3")
+      .then((res) => {
+        return res.data
+        })`,
+    },
+    {
+      api: "/product/category/:category/:list/:limit",
+      method: "GET",
+      description: "Get limited number of category",
+      return: `[
+    {
+        "rate": {
+            "reviews": [],
+            "rating": 0,
+            "numberOfReviews": 0
+        },
+        "Sale": {
+            "value": 0,
+            "available": false,
+            "startDate": "2022-07-23T13:36:54.237Z",
+            "endDate": "2022-07-23T13:36:54.237Z",
+            "pricebefore": 1052
+        },
+        "_id": "62dbf9762dd27153fa1165c6",
+        "name": "Onion Powder",
+        "price": 1052,
+        "quantity": 1923,
+        "image": "https://i.im.ge/2022/06/18/rBOp98.png",
+        "description": "Pellentesque at nulla. Suspendisse potenti.",
+        "category": "Laptop",
+        "subcategory": [
+            "Top Rated"
+        ],
+        "__v": 0
+    },
+    {
+        "rate": {
+            "reviews": [],
+            "rating": 0,
+            "numberOfReviews": 0
+        },
+        "Sale": {
+            "value": 65,
+            "available": true,
+            "startDate": "2022-07-23T13:36:54.237Z",
+            "endDate": "2022-07-23T13:36:54.237Z",
+            "pricebefore": 278
+        },
+        "_id": "62dbf9762dd27153fa1165c7",
+        "name": "Miso - Soy Bean Paste",
+        "price": 98,
+        "quantity": 2758,
+        "image": "https://i.im.ge/2022/06/18/rBOHFX.png",
+        "description": "Praesent id massa id nisl venenatis lacinia.",
+        "category": "Laptop",
+        "subcategory": [
+            "Featured",
+            "On Sale"
+        ],
+        "__v": 1
+    },
+    {
+        "rate": {
+            "reviews": [],
+            "rating": 0,
+            "numberOfReviews": 0
+        },
+        "Sale": {
+            "value": 13,
+            "available": true,
+            "startDate": "2022-07-23T13:36:54.239Z",
+            "endDate": "2022-07-23T13:36:54.239Z",
+            "pricebefore": 1058
+        },
+        "_id": "62dbf9762dd27153fa1165c8",
+        "name": "Beer - Camerons Auburn",
+        "price": 921,
+        "quantity": 4269,
+        "image": "https://i.im.ge/2022/06/18/rBOkk9.jpg",
+        "description": "Vestibulum quam sapien, varius ut, blandit non.",
+        "category": "Laptop",
+        "subcategory": [
+            "Featured",
+            "On Sale"
+        ],
+        "__v": 1
+    }
+]`,
+      params: `:list => number of page / :limit => number of products in each page`,
+      request: `
+        axios.get(
+          "https://e-commerce-backend-2022.herokuapp.com/product/category/Laptop/1/3")
+        .then((res) => {
+          return res.data
+          })`,
+    },
+
+    {
+      api: "/product/subcategory/:subcategory/:list/:limit",
+      method: "GET",
+      description: "Get limited number of subcategory",
+      return: `[
+    {
+        "rate": {
+            "reviews": [],
+            "rating": 0,
+            "numberOfReviews": 0
+        },
+        "Sale": {
+            "value": 6,
+            "available": true,
+            "startDate": "2022-07-23T13:36:54.214Z",
+            "endDate": "2022-07-23T13:36:54.214Z",
+            "pricebefore": 1638
+        },
+        "_id": "62dbf9762dd27153fa11653e",
+        "name": "Sage - Ground",
+        "price": 1540,
+        "quantity": 4048,
+        "image": "https://i.im.ge/2022/06/18/rBOa8M.png",
+        "description": "Morbi non lectus. Aliquam sit amet diam in magna bibendum.",
+        "category": "Accessories",
+        "subcategory": [
+            "Best Seller",
+            "Hot Deals",
+            "On Sale"
+        ],
+        "__v": 5
+    },
+    {
+        "rate": {
+            "reviews": [],
+            "rating": 0,
+            "numberOfReviews": 0
+        },
+        "Sale": {
+            "value": 0,
+            "available": false,
+            "startDate": "2022-07-23T13:36:54.219Z",
+            "endDate": "2022-07-23T13:36:54.219Z",
+            "pricebefore": 584
+        },
+        "_id": "62dbf9762dd27153fa116553",
+        "name": "Flour - Strong",
+        "price": 584,
+        "quantity": 960,
+        "image": "https://i.im.ge/2022/06/17/rBufB6.jpg",
+        "description": "Pellentesque at nulla. Suspendisse potenti.",
+        "category": "Health&GYM",
+        "subcategory": [
+            "Top Rated",
+            "Trending",
+            "Hot Deals"
+        ],
+        "__v": 2
+    },
+    {
+        "rate": {
+            "reviews": [],
+            "rating": 0,
+            "numberOfReviews": 0
+        },
+        "Sale": {
+            "value": 0,
+            "available": false,
+            "startDate": "2022-07-23T13:36:54.221Z",
+            "endDate": "2022-07-23T13:36:54.221Z",
+            "pricebefore": 605
+        },
+        "_id": "62dbf9762dd27153fa116562",
+        "name": "Chips - Doritos",
+        "price": 605,
+        "quantity": 4296,
+        "image": "https://i.im.ge/2022/06/17/rBuhUD.jpg",
+        "description": "Curabitur in libero ut massa volutpat convallis.",
+        "category": "Shoes",
+        "subcategory": [
+            "New Arrival",
+            "Hot Deals"
+        ],
+        "__v": 1
+    }
+]`,
+      params: `:list => number of page / :limit => number of products in each page`,
+      request: `
+        axios.get(
+          "https://e-commerce-backend-2022.herokuapp.com/product/subcategory/Best Seller/1/3")
+        .then((res) => {
+          return res.data
+          })`,
     },
   ],
   reviews: [
@@ -1092,7 +1174,8 @@ const document = {
             "value": 0,
             "available": false,
             "startDate": "2022-07-23T13:36:54.218Z",
-            "endDate": "2022-07-23T13:36:54.218Z"
+            "endDate": "2022-07-23T13:36:54.218Z",
+            "pricebefore":6211
         },
         "_id": "62dbf9762dd27153fa11654f",
         "name": "Wine - Merlot Vina Carmen",
@@ -1117,7 +1200,8 @@ const document = {
             "value": 0,
             "available": false,
             "startDate": "2022-07-23T13:36:54.212Z",
-            "endDate": "2022-07-23T13:36:54.212Z"
+            "endDate": "2022-07-23T13:36:54.212Z",
+            "pricebefore":6396
         },
         "_id": "62dbf9762dd27153fa116539",
         "name": "Oysters - Smoked",
@@ -1141,7 +1225,8 @@ const document = {
             "value": 0,
             "available": false,
             "startDate": "2022-07-23T13:36:54.210Z",
-            "endDate": "2022-07-23T13:36:54.210Z"
+            "endDate": "2022-07-23T13:36:54.210Z",
+            "pricebefore":3640
         },
         "_id": "62dbf9762dd27153fa116536",
         "name": "Teriyaki Sauce",
@@ -1165,7 +1250,8 @@ const document = {
             "value": 0,
             "available": false,
             "startDate": "2022-07-23T13:36:54.216Z",
-            "endDate": "2022-07-23T13:36:54.216Z"
+            "endDate": "2022-07-23T13:36:54.216Z",
+            "pricebefore":9337
         },
         "_id": "62dbf9762dd27153fa116543",
         "name": "Pasta - Orecchiette",

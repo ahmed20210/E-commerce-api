@@ -38,6 +38,11 @@ const sortProducts = async (sort) => {
     .sort(sort);
   return products;
 };
+const getLimitedProducts = async (list,limit) => {
+  const products = await Product.find()
+    .populate("rate.reviews", "-user -product").skip(list * limit).limit(limit);
+  return products;
+};
 const getProductsBySearch = async (search) => {
   const products = await Product.find({
     name: { $regex: search, $options: "i" },
@@ -59,7 +64,22 @@ try{
   console.log(err);
  }
 });
-
+router.get("/limit/:list/:limit", async (req, res) => {
+  try{
+    const list = req.params.list;
+    const limit = req.params.limit;
+    if (parseInt(list).toString() == "NaN" || parseInt(limit).toString() == "NaN") {
+      res.status(400).send("Invalid list or limit");
+    } else {
+    const products = await getLimitedProducts(list,limit);
+    res.send(products)
+    } 
+  }
+  catch(err){
+   res.status(500).send(err);
+    }
+    })
+    
 router.get("/:id", async (req, res) => {
   try{
   const product = await getProduct(req.params.id);
@@ -101,6 +121,52 @@ router.get("/search/:search", async (req, res) => {
   res.json(products);
   } catch(err){
     console.log(err);
+  }
+});
+
+
+router.get("/subcategory/:subcategory/limit/:list/:limit", async (req, res) => {
+  try {
+    const list = req.params.list;
+    const limit = req.params.limit;
+    const subcategory = req.params.subcategory;
+    if (
+      parseInt(list).toString() == "NaN" ||
+      parseInt(limit).toString() == "NaN"
+    ) {
+      res.status(400).send("Invalid list or limit");
+    } else {
+     const products = await Product.find({ subcategory: subcategory }).populate(
+       "rate.reviews",
+       "-user -product"
+     ).skip(list * limit).limit(limit);
+      res.status(200).send(products);
+     
+    }
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+router.get("/category/:category/limit/:list/:limit", async (req, res) => {
+  try {
+    const list = req.params.list;
+    const limit = req.params.limit;
+    const category = req.params.category;
+    if (
+      parseInt(list).toString() == "NaN" ||
+      parseInt(limit).toString() == "NaN"
+    ) {
+      res.status(400).send("Invalid list or limit");
+    } else {
+      const products = await Product.find({ category: category })
+        .populate("rate.reviews", "-user -product")
+        .skip(list * limit)
+        .limit(limit);
+      res.status(200).send(products);
+     
+    }
+  } catch (err) {
+    res.status(500).send(err);
   }
 });
 
