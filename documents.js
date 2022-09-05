@@ -472,6 +472,7 @@ const document = {
       api: "/product/limit/:list/:limit",
       method: "GET",
       description: "Get limited number of products",
+      body: null,
       return: `[
     {
         "rate": {
@@ -566,6 +567,7 @@ const document = {
       api: "/product/category/:category/:list/:limit",
       method: "GET",
       description: "Get limited number of category",
+      body: null,
       return: `[
     {
         "rate": {
@@ -658,6 +660,7 @@ const document = {
       api: "/product/subcategory/:subcategory/:list/:limit",
       method: "GET",
       description: "Get limited number of subcategory",
+      body: null,
       return: `[
     {
         "rate": {
@@ -759,6 +762,7 @@ const document = {
         rating: "number between 1 and 5",
       },
       params: ":id => product id",
+
       return: `{
     "review": "this is a review",
     "rating": 5,
