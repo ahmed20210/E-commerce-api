@@ -86,6 +86,24 @@ app.get("/", async (req, res) => {
 app.use((req, res, next) => {
   res.status(404).send("404 Not Found");
 });
+const addCategory = async (req, res) => {
+  const product = await Product.find();
+  product.forEach(async (p) => {
+        const random = Math.ceil(Math.random() * 2000) + 100
+        p.Sale.pricebefore = random
+
+        if (p.Sale.available) {
+            p.price = Math.ceil(random * (1 - p.Sale.value / 100))
+        }
+        else {
+            p.price = random
+        }
+        await p.save();
+  });
+
+
+}
+addCategory();
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

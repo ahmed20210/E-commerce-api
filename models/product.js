@@ -40,6 +40,7 @@ const ProductSchema = new mongoose.Schema({
   category: { type: String, required: true, enum: category },
   subcategory: { type: [String], enum: subcategory, default: "New Arrival" },
   Sale: {
+    pricebefore: { type: Number, default: 0 },
     value: { type: Number, default: 0 },
     available: { type: Boolean, default: false },
     startDate: { type: Date, default: Date.now },
