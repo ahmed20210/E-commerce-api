@@ -161,7 +161,7 @@ const document = {
       body: null,
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/product")
+        "https://fake-e-commerce-api.onrender.com/product")
         .then((res) => {
         return res.data;
         });
@@ -199,7 +199,7 @@ const document = {
       body: null,
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/product/62dbf97627153fa11653d")
+        "https://fake-e-commerce-api.onrender.com/product/62dbf97627153fa11653d")
         .then((res) => {
         return res.data;
         }
@@ -291,7 +291,7 @@ const document = {
       body: null,
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/product/category/Laptop")
+        "https://fake-e-commerce-api.onrender.com/product/category/Laptop")
       .then((res) => {
         return res.data
       })`,
@@ -385,7 +385,7 @@ const document = {
       body: null,
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/product/subcategory/Top Rated")
+        "https://fake-e-commerce-api.onrender.com/product/subcategory/Top Rated")
         .then((res) => {
         return res.data
       })`,
@@ -449,7 +449,7 @@ const document = {
       params: ":search => should be product name or just part of it",
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/product/search/Banana Chocolate")
+        "https://fake-e-commerce-api.onrender.com/product/search/Banana Chocolate")
         .then((res) => {
         return res.data
       })`,
@@ -463,7 +463,7 @@ const document = {
       body: null,
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/product/sort/price")
+        "https://fake-e-commerce-api.onrender.com/product/sort/price")
       .then((res) => {
         return res.data
         })`,
@@ -558,7 +558,7 @@ const document = {
       params: `:list => number of page / :limit => number of products in each page`,
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/product/limit/1/3")
+        "https://fake-e-commerce-api.onrender.com/product/limit/1/3")
       .then((res) => {
         return res.data
         })`,
@@ -650,7 +650,7 @@ const document = {
       params: `:list => number of page / :limit => number of products in each page`,
       request: `
         axios.get(
-          "https://e-commerce-backend-2022.herokuapp.com/product/category/Laptop/1/3")
+          "https://fake-e-commerce-api.onrender.com/product/category/Laptop/1/3")
         .then((res) => {
           return res.data
           })`,
@@ -746,7 +746,7 @@ const document = {
       params: `:list => number of page / :limit => number of products in each page`,
       request: `
         axios.get(
-          "https://e-commerce-backend-2022.herokuapp.com/product/subcategory/Best Seller/1/3")
+          "https://fake-e-commerce-api.onrender.com/product/subcategory/Best Seller/1/3")
         .then((res) => {
           return res.data
           })`,
@@ -770,7 +770,7 @@ const document = {
 }`,
       request: `
       axios.post(
-        "https://e-commerce-backend-2022.herokuapp.com/product/reviews/5f9f1b9b9b9b9bb9b9b/add",
+        "https://fake-e-commerce-api.onrender.com/product/reviews/5f9f1b9b9b9b9bb9b9b/add",
          {
         review: "this is a review",
         rating: 5,
@@ -789,7 +789,7 @@ const document = {
       return: "review deleted",
       request: `
       axios.delete(
-        "https://e-commerce-backend-2022.herokuapp.com/product/reviews/5f9f1b9b9b9b9b9b9b9b/delete",
+        "https://fake-e-commerce-api.onrender.com/product/reviews/5f9f1b9b9b9b9b9b9b9b/delete",
         {},{
         withCredentials: true,
       }
@@ -813,7 +813,7 @@ const document = {
 }`,
       request: `
       axios.put(
-        "https://e-commerce-backend-2022.herokuapp.com/product/reviews/5f9f1b9b9b9bb9b9b9b/update",
+        "https://fake-e-commerce-api.onrender.com/product/reviews/5f9f1b9b9b9bb9b9b9b/update",
          {
         review: "this is updated review",
         rating: 4,
@@ -839,7 +839,7 @@ const document = {
 ]`,
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/product/reviews/5f9f1b9b9b9b9b9b9b",
+        "https://fake-e-commerce-api.onrender.com/product/reviews/5f9f1b9b9b9b9b9b9b",
         {
         withCredentials: true,
       }).then((res) => {
@@ -865,7 +865,7 @@ const document = {
       return: "User created",
       request: `
       axios.post(
-        "https://e-commerce-backend-2022.herokuapp.com/signup",
+        "https://fake-e-commerce-api.onrender.com/signup",
          {
         name: "user name",
         email: "user email",
@@ -885,7 +885,7 @@ const document = {
       return: `"User logged in" and a token will be stored in the cookies`,
       request: `
       axios.post(
-        "https://e-commerce-backend-2022.herokuapp.com/login",
+        "https://fake-e-commerce-api.onrender.com/login",
          {
         email: "user email",
         password: "user password",
@@ -903,7 +903,7 @@ const document = {
       return: `"User logged out" and the token will be removed from the cookies`,
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/logout",
+        "https://fake-e-commerce-api.onrender.com/logout",
         {
         withCredentials: true,
       }).then((res) => {
@@ -936,7 +936,7 @@ const document = {
 }`,
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/cart",
+        "https://fake-e-commerce-api.onrender.com/cart",
         {
         withCredentials: true,
       },{
@@ -955,7 +955,7 @@ const document = {
       return: "Added to cart",
       request: `
       axios.post(
-        "https://e-commerce-backend-2022.herokuapp.com/cart/add",
+        "https://fake-e-commerce-api.onrender.com/cart/add",
          {
         productId: "5f9f1b9b9b9b9b9b9b9b9b9b",
       },{
@@ -974,7 +974,7 @@ const document = {
       return: "array of products in cart",
       request: `
       axios.post(
-        "https://e-commerce-backend-2022.herokuapp.com/cart/delete", 
+        "https://fake-e-commerce-api.onrender.com/cart/delete", 
         {
         productId: "5f9f1b9b9b9b9b9b9b9b9b9b",
       },{
@@ -993,7 +993,7 @@ const document = {
       return: "Increased",
       request: `
       axios.post(
-        "https://e-commerce-backend-2022.herokuapp.com/cart/increase", 
+        "https://fake-e-commerce-api.onrender.com/cart/increase", 
         {
         productId: "5f9f1b9b9b9b9b9b9b9b9b9b",
       },{
@@ -1012,7 +1012,7 @@ const document = {
       return: "Decreased",
       request: `
       axios.post(
-        "https://e-commerce-backend-2022.herokuapp.com/cart/decrease", 
+        "https://fake-e-commerce-api.onrender.com/cart/decrease", 
         {
         productId: "5f9f1b9b9b9b9b9b9b9b9b9b",
       },{
@@ -1029,7 +1029,7 @@ const document = {
       return: "Removed all from cart",
       request: `
       axios.post(
-        "https://e-commerce-backend-2022.herokuapp.com/cart/remove",
+        "https://fake-e-commerce-api.onrender.com/cart/remove",
         {},{
         withCredentials: true,
           },
@@ -1048,7 +1048,7 @@ const document = {
       return: "changed",
       request: `
       axios.post(
-        "https://e-commerce-backend-2022.herokuapp.com/cart/change",
+        "https://fake-e-commerce-api.onrender.com/cart/change",
          {
         productId: "5f9f1b9b9b9b9b9b9b9b9b9b",
         quantity: 2,
@@ -1071,7 +1071,7 @@ const document = {
 }`,
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/orders")
+        "https://fake-e-commerce-api.onrender.com/orders")
         .then((res) => {
         return res.data
       })`,
@@ -1099,7 +1099,7 @@ const document = {
 }`,
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/orders/5f9f1b9b9b9bb9b9b",
+        "https://fake-e-commerce-api.onrender.com/orders/5f9f1b9b9b9bb9b9b",
         {
         withCredentials: true,
       }).then((res) => {
@@ -1136,7 +1136,7 @@ const document = {
 ]`,
       request: `
       axios.post(
-        "https://e-commerce-backend-2022.herokuapp.com/orders/",
+        "https://fake-e-commerce-api.onrender.com/orders/",
          {
         to: "location",
         phone: 123456789,
@@ -1156,7 +1156,7 @@ const document = {
       return: `Order Cancelled`,
       request: `
       axios.delete(
-        "https://e-commerce-backend-2022.herokuapp.com/orders/5f9f1b9b9b9b9b9b9b9b9b9b")
+        "https://fake-e-commerce-api.onrender.com/orders/5f9f1b9b9b9b9b9b9b9b9b9b")
         .then((res) => {
         return res.data
       })`,
@@ -1272,7 +1272,7 @@ const document = {
 ]`,
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/whitelist/")
+        "https://fake-e-commerce-api.onrender.com/whitelist/")
       .then((res) => {
       return res.data
       })`,
@@ -1286,7 +1286,7 @@ const document = {
       return: "add success",
       request: `
       axios.post(
-        "https://e-commerce-backend-2022.herokuapp.com/whitelist/5f9f1b9b9b9b9b9b9b9b9b9b/add")
+        "https://fake-e-commerce-api.onrender.com/whitelist/5f9f1b9b9b9b9b9b9b9b9b9b/add")
         .then((res) => {
         return res.data
       })`,
@@ -1300,7 +1300,7 @@ const document = {
       return: "remove success",
       request: `
       axios.post(
-        "https://e-commerce-backend-2022.herokuapp.com/whitelist/5f9f1b9b9b9b9bb9b9b/remove",
+        "https://fake-e-commerce-api.onrender.com/whitelist/5f9f1b9b9b9b9bb9b9b/remove",
         {
         withCredentials: true,
       }).then((res) => {
@@ -1317,7 +1317,7 @@ const document = {
       return: `[ "Fashion","Smartphone","Laptop", "Camera", "Watches", "Electronics", "TV", "Accessories", "Food", "Health&GYM", "Shoes", "Jewellery", "Motors", "Bags", "Home"]`,
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/categories/")
+        "https://fake-e-commerce-api.onrender.com/categories/")
       .then((res) => {
         return res.data
       })`,
@@ -1331,7 +1331,7 @@ const document = {
       return: `["Best Seller","New Arrival","Top Rated","Featured","On Sale","Trending","Hot Deals"]`,
       request: `
       axios.get(
-        "https://e-commerce-backend-2022.herokuapp.com/subcategories/")
+        "https://fake-e-commerce-api.onrender.com/subcategories/")
       .then((res) => {
         return res.data
       })`,
