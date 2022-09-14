@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const paymentMethod = ["Cash On Delivery", "Visa", "paypal"];
+const paymentMethod = ["Cash On Delivery", "Visa", "Paypal", "Master Card"];
 const OrderSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   orders: [

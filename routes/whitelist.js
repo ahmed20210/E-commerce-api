@@ -9,6 +9,7 @@ const checkDone = (res, result) => {
     res.status(500).send("Error");
   }
 };
+// add to whitelist function
 const addTOWhitelist = async (userID, productID) => {
   try {
     const user = await User.findById(userID);
@@ -29,6 +30,7 @@ const addTOWhitelist = async (userID, productID) => {
     console.log(err);
   }
 };
+// delete from whitelist function
 const removeFromWhitelist = async (userID, productID) => {
   try {
     const user = await User.findById(userID);
@@ -47,6 +49,7 @@ const removeFromWhitelist = async (userID, productID) => {
     console.log(err);
   }
 };
+// get user whitelist function
 const getWhitelist = async (userID) => {
   try {
     const user = await User.findById(userID).populate("whiteList");
@@ -59,6 +62,7 @@ const getWhitelist = async (userID) => {
     console.log(err);
   }
 };
+// get product whitelist route
 router.post("/:id/add", async (req, res) => {
   try {
   const userID = res.locals.user;
@@ -69,6 +73,7 @@ router.post("/:id/add", async (req, res) => {
     console.log(err);
   }
 });
+// delete product whitelist route
 router.post("/:id/remove", async (req, res) => {
   try {
   const userID = res.locals.user;
@@ -79,6 +84,7 @@ router.post("/:id/remove", async (req, res) => {
     console.log(err);
   }
 });
+// get user whitelist route
 router.get("/", async (req, res) => {
   try {
   const userID = res.locals.user;

@@ -12,25 +12,22 @@ const order = require("./routes/order");
 const whitelist = require("./routes/whitelist");
 const { OAuth, checkUser } = require("./auth/oauth");
 const { category, subcategory } = require("./models/product");
-const Review = require("./models/reviews");
-const { document, protectedAPIsThatRequireLogin } = require("./documents");
-const Product = require("./models/product");
-const User = require("./models/user");
+//you must add your own mongodb url
 const URI =
-  "mongodb+srv://ahmedmostafa:01144781238ahmed@ecommerce.lxpr7.mongodb.net/?retryWrites=true&w=majority";
+  "add your mongodb uri here to connect to your mongodb database";
 mongoose
   .connect(URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("Connected to MongoDB..."))
-  .catch((err) => console.error("Could not connect to MongoDB...", err));
+  .then(() => console.log("Connected to DataBase..."))
+  .catch((err) => console.error("Could not connect to DataBase...", err));
 
 app.use(bodyParser.json());
+// allow cross-origin requests and allow credentials to send cookies
 app.use(cors({ credentials: true, origin: true }));
-
 app.use(cookieParser());
-
+// export routes to app
 app.use(user);
 app.use("*", checkUser);
 app.use("/product", product);
@@ -38,6 +35,7 @@ app.use("/orders", OAuth, order);
 app.use("/cart", OAuth, cart);
 app.use("/whitelist", OAuth, whitelist);
 
+// get categories list route
 app.get("/categories", async (req, res) => {
   try {
     const categorys = await category;
@@ -46,6 +44,7 @@ app.get("/categories", async (req, res) => {
     res.status(500).send(err);
   }
 });
+// get subcategories list route
 app.get("/subcategories", async (req, res) => {
   try {
     const subcategorys = subcategory;
@@ -54,6 +53,7 @@ app.get("/subcategories", async (req, res) => {
     res.status(500).send(err);
   }
 });
+// Authentication user by frontend developer
 app.get("/oauth", (req, res, next) => {
   try {
     const token = req.cookies.token;
@@ -73,37 +73,11 @@ app.get("/oauth", (req, res, next) => {
   }
 });
 
-app.get("/", async (req, res) => {
-  try {
-    res.send({
-      document,
-      protectedAPIsThatRequireLogin,
-    });
-  } catch (err) {
-    res.status(500).send(err);
-  }
-});
+
+// catch not existing requests
 app.use((req, res, next) => {
   res.status(404).send("404 Not Found");
 });
-const addCategory = async (req, res) => {
-  const product = await Product.find();
-  product.forEach(async (p) => {
-        const random = Math.ceil(Math.random() * 2000) + 100
-        p.Sale.pricebefore = random
-
-        if (p.Sale.available) {
-            p.price = Math.ceil(random * (1 - p.Sale.value / 100))
-        }
-        else {
-            p.price = random
-        }
-        await p.save();
-  });
-
-
-}
-addCategory();
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

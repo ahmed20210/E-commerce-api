@@ -5,6 +5,7 @@ const Order = require("../models/order");
 const { userValidationSchema } = require("../models/user");
 const bcrypt = require("bcrypt");
 const JWT = require("jsonwebtoken");
+// sign up function
 const signUP = async (user) => {
   try {
 
@@ -49,6 +50,7 @@ const signUP = async (user) => {
     return err;
   }
 };
+// sign up route
 router.post("/signup", async (req, res) => {
   try {
 
@@ -70,7 +72,7 @@ router.post("/signup", async (req, res) => {
 
 });
 
-
+// log in 
 const logIn = async (email, password) => {
   try {
     const user = await User.findOne({ email: email });
@@ -88,11 +90,12 @@ const logIn = async (email, password) => {
     console.log(err);
   }
 };
+// create token
 const createToken = (id) => {
   maxage = 30 * 24 * 60 * 60 * 1000;
   return JWT.sign({ id }, "user secret token", { expiresIn: maxage});
 };
-
+// authenticate user
 const logInAuth = async (req, res, next) => {
   try {
   const { email, password } = req.body;
@@ -112,17 +115,19 @@ const logInAuth = async (req, res, next) => {
     console.log(err);
   }
 };
-const logOut = (req, res, next) => {
+
+// log out and delete token
+const logOut = (req, res) => {
   try {
   res.cookie("token", "", { maxAge: null, httpOnly: true, sameSite: "None" , secure: true});
   res.status(200).send("logged out");
   } catch (err) {
     console.log(err);
   }
-
- 
 };
+// log in and authenticate user route
 router.post("/login", logInAuth);
+// log out route
 router.get("/logout", logOut);
 
 module.exports = router;

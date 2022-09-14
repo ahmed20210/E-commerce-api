@@ -4,6 +4,7 @@ const Product = require("../models/product");
 const router = require("express").Router();
 const joi = require("joi");
 const mongoose = require("mongoose");
+// cancel order function
 const cancelOrder = async (userId, orderId) => {
   try {
     const orderList = await Order.findOne({ user: userId });
@@ -29,6 +30,7 @@ const checkDone = (res, result) => {
     res.status(500).send("Error");
   }
 };
+// complete abd checkout order function
 const completeOrder = async (userOrder) => {
   try {
     const time = 3 * 24 * 60 * 60 * 1000;
@@ -61,6 +63,7 @@ const completeOrder = async (userOrder) => {
         await cart.save();
         await userOrders.save();
       }
+      // delete order after 3 days instead of order delvery time
       setTimeout(() => {
         cancelOrder(user, order._id.toString());
       }, time);
@@ -72,62 +75,62 @@ const completeOrder = async (userOrder) => {
     console.log(err);
   }
 };
-
+// get all orders function
 router.get("/", async (req, res) => {
   try {
-  const userOrders = await Order.findOne({ user: res.locals.user }).populate("orders.products.product")
-  .select(
-    "orders"
-  );
-  res.json(userOrders);
+    const userOrders = await Order.findOne({ user: res.locals.user })
+      .populate("orders.products.product")
+      .select("orders");
+    res.json(userOrders);
   } catch (error) {
     console.log(error);
   }
 });
 router.get("/:id", async (req, res) => {
   try {
-  const userOrder = await Order.findOne({ user: res.locals.user });
-  const theOrder = userOrder.orders.find(
-    (o) => o.id.toString() === req.params.id
-  );
-  if (theOrder) {
-    res.json(theOrder);
-  } else {
-    res.status(404).send("Order not found");
-  }
+    const userOrder = await Order.findOne({ user: res.locals.user });
+    const theOrder = userOrder.orders.find(
+      (o) => o.id.toString() === req.params.id
+    );
+    if (theOrder) {
+      res.json(theOrder);
+    } else {
+      res.status(404).send("Order not found");
+    }
   } catch (error) {
     console.log(error);
   }
 });
+// complete order function
 router.post("/", async (req, res) => {
   try {
-  const user = res.locals.user;
-  const { to, phone, payment} = req.body;
-  const notes = req.body.notes || "";
-  const validate = joi
-    .object({
-      to: joi.string().required(),
-      phone: joi.number().required(),
-      payment: joi.string().required(),
-      notes: joi.string(),
-    })
-    .validate(req.body);
-  if (validate.error) {
-    res.status(400).send(validate.error.details[0].message);
-  } else {
-
-    const result = await completeOrder({ user, to, phone, payment, notes });
-    checkDone(res, result);
-  }
+    const user = res.locals.user;
+    const { to, phone, payment } = req.body;
+    const notes = req.body.notes || "";
+    const validate = joi
+      .object({
+        to: joi.string().required(),
+        phone: joi.number().required(),
+        payment: joi.string().required(),
+        notes: joi.string(),
+      })
+      .validate(req.body);
+    if (validate.error) {
+      res.status(400).send(validate.error.details[0].message);
+    } else {
+      const result = await completeOrder({ user, to, phone, payment, notes });
+      checkDone(res, result);
+    }
   } catch (error) {
     console.log(error);
   }
 });
+// cancel order function
 router.delete("/:id", async (req, res) => {
   try {
-  const user = res.locals.user;
-  const result = await cancelOrder(user, req.params.id);
-  checkDone(res, result);
+    const user = res.locals.user;
+    const result = await cancelOrder(user, req.params.id);
+    checkDone(res, result);
   } catch (error) {
     console.log(error);
   }

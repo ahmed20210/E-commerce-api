@@ -1,5 +1,5 @@
 const JWT = require("jsonwebtoken");
-
+// user authentication in protected routes
 const OAuth = async (req, res, next) => {
   const token = req.cookies.token;
   if (token) {
@@ -14,7 +14,7 @@ const OAuth = async (req, res, next) => {
     res.send("Unauthorized");
   }
 };
-
+// check if user is logged in with every route
 const checkUser = async (req, res, next) => {
   const token = req.cookies.token;
   if (token) {

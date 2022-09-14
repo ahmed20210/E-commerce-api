@@ -14,6 +14,7 @@ const modifyCart = async (userId, productId, action, quantity) => {
     );
 
     if (user && product && cart) {
+      // Add to cart
       if (action === "add") {
         
         if (!cartItem) {
@@ -27,6 +28,7 @@ const modifyCart = async (userId, productId, action, quantity) => {
           await cart.save();
           return "Added to cart";
         }
+        // decrease Item from cart
       } else if (action === "delete") {
         if (cartItem) {
           cart.products.splice(cart.products.indexOf(cartItem), 1);
@@ -34,6 +36,7 @@ const modifyCart = async (userId, productId, action, quantity) => {
           await cart.save();
           return "Removed from cart";
         }
+        // remove all items from cart
       } else if (action === "decrease") {
         if (cartItem) {
           cartItem.quantity -= 1;
@@ -45,6 +48,7 @@ const modifyCart = async (userId, productId, action, quantity) => {
           await cart.save();
           return "Decreased";
         }
+        // increase quantity of item by 1 in cart
       } else if (action === "increase") {
         if (cartItem) {
           cartItem.quantity += 1
@@ -55,6 +59,7 @@ const modifyCart = async (userId, productId, action, quantity) => {
         }
         
       }
+      // change quantity of item in cart
       else if (action === "change") {
         if (cartItem) {
           cartItem.quantity = quantity;
@@ -70,6 +75,7 @@ const modifyCart = async (userId, productId, action, quantity) => {
       }
     } 
     if (user && cart){
+      // remove all items from cart
      if (action === "remove") {
       cart.products = [];
       cart.total = 0;
@@ -81,6 +87,7 @@ const modifyCart = async (userId, productId, action, quantity) => {
     return error;
   }
 };
+// check if fuction give result or error
 const checkDone = (res, result) => {
   if (result) {
     res.status(200).send(result);
@@ -88,6 +95,7 @@ const checkDone = (res, result) => {
     res.status(500).send("Error");
   }
 };
+
 const addToCart = async (userId, productId) => {
   return modifyCart(userId, productId, "add");
 };
@@ -111,6 +119,7 @@ const getCart = async (userId) => {
   const cart = await Cart.findOne({ user: userId }).select("products total").populate("products.product", "name price image");
   return cart;
 };
+// update cart route
 router.post("/update", async (req, res) => {
   try {
   const userId = res.locals.user;
@@ -129,6 +138,7 @@ router.post("/update", async (req, res) => {
     res.status(500).send(error);
   }
 });
+// add to cart route
 router.post("/add", async (req, res) => {
   try {
     const userId = res.locals.user;
@@ -139,6 +149,7 @@ router.post("/add", async (req, res) => {
     res.sendStatus(500);
   }
 });
+// remove from cart route
 router.post("/delete", async (req, res) => {
   try {
   const userId = res.locals.user;
@@ -149,6 +160,7 @@ router.post("/delete", async (req, res) => {
     res.sendStatus(500);
   }
 });
+// remove all from cart route
 router.post("/remove", async (req, res) => {
   try {
   const userId = res.locals.user;
@@ -158,7 +170,7 @@ router.post("/remove", async (req, res) => {
     res.sendStatus(500);
   }
 });
-
+// decrease one from cart route
 router.post("/decrease", async (req, res) => {
   try {
   const userId = res.locals.user;
@@ -169,6 +181,7 @@ router.post("/decrease", async (req, res) => {
     res.sendStatus(500);
   }
 });
+// increase one from cart route
 router.post("/increase", async (req, res) => {
   try {
   const userId = res.locals.user;
@@ -189,7 +202,7 @@ router.post("/increase", async (req, res) => {
 
 });
 
-
+// get cart route
 router.get("/", async (req, res) => {
   try {
     const userId = res.locals.user;

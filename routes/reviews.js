@@ -9,6 +9,7 @@ const checkDone = (res, result) => {
     res.status(500).send("Error");
   }
 };
+
 const modifyReview = async (userId, productId, action, review, rating) => {
   const product = await Product.findById(productId);
   const user = await User.findById(userId);
@@ -22,6 +23,7 @@ const modifyReview = async (userId, productId, action, review, rating) => {
   );
   const sum = coll.reduce((acc, curr) => acc + curr.rating, 0);
   if (user && product) {
+    // add review
     if (action == "add") {
       const rate = {
         user: userId,
@@ -44,6 +46,7 @@ const modifyReview = async (userId, productId, action, review, rating) => {
           name : newReview.name
         }
       }
+      // delete review
     } else if (action == "delete") {
       if (previousReview) {
         await Review.deleteOne({ user: userId, product: productId });
@@ -59,6 +62,7 @@ const modifyReview = async (userId, productId, action, review, rating) => {
         await product.save();
         return "review deleted";
       }
+      // update review
     } else if (action == "update") {
       if (previousReview) {
         await Review.updateOne(
@@ -78,6 +82,7 @@ const modifyReview = async (userId, productId, action, review, rating) => {
     }
   }
 };
+
 const addReview = async (userId, productId, review, rating) => {
   return modifyReview(userId, productId, "add", review, rating);
 };
@@ -87,7 +92,7 @@ const deleteReview = async (userId, productId) => {
 const updateReview = async (userId, productId, review, rating) => {
   return modifyReview(userId, productId, "update", review, rating);
 };
-
+// add review route
 router.post("/:id/add", async (req, res) => {
   try {
   const userId = res.locals.user;
@@ -96,9 +101,10 @@ router.post("/:id/add", async (req, res) => {
   const result = await addReview(userId, productId, review, rating);
   checkDone(res, result);
 } catch (error) {
-  console.log(error);
+  res.status(500).send(error)
 }
 });
+// delete review route
 router.delete("/:id/delete", async (req, res) => {
   try {
   const userId = res.locals.user;
@@ -106,9 +112,10 @@ router.delete("/:id/delete", async (req, res) => {
   const result = await deleteReview(userId, productId);
   checkDone(res, result);
 } catch (error) {
-  console.log(error);
+  res.status(500).send(error)
 }
 });
+// update review route
 router.put("/:id/update", async (req, res) => {
   try {
   const userId = res.locals.user;
@@ -117,9 +124,10 @@ router.put("/:id/update", async (req, res) => {
   const result = await updateReview(userId, productId, review, rating);
   checkDone(res, result);
 } catch (error) {
-  console.log(error);
+  res.status(500).send(error)
 }
 });
+// get user review of a product route
 router.get("/:id", async (req, res) => {
   try {
   const productId = req.params.id;
@@ -129,7 +137,7 @@ router.get("/:id", async (req, res) => {
   }).select("-user -__v");
   checkDone(res, result);
 } catch (error) {
-  console.log(error);
+  res.status(500).send(error)
 }
 });
 
